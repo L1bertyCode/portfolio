@@ -1,0 +1,19 @@
+@import url("./reset.scss");
+@import url("./variables.scss");
+@import url("./themes/light.scss");
+@import url("./themes/dark.scss");
+@import url("./themes/blue.scss");
+@import url("./themes/orange.scss");
+html,
+body,
+#root,
+.app {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  height: 100vh;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+}
