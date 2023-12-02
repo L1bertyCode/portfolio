@@ -1,11 +1,12 @@
 import "./styles/index.scss";
 import { Suspense, useContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { routesConfig } from "@/shared/config/routes/routesConfig";
+
 import { Navbar } from "@/widgets/Navbar";
 import { Sidebar } from "@/widgets/Sidebar";
 
 import { useTheme } from "@/shared/lib/hooks/useTheme";
+import { AppRouter } from "@/providers/AppRouter";
 
 export function App() {
   const { theme, setTheme } = useTheme();
@@ -19,17 +20,7 @@ export function App() {
       <div className="content">
         <Sidebar />
         <Suspense fallback={loading}>
-          <Routes>
-            {routesConfig.map((route) => {
-              return (
-                <Route
-                  path={route.path}
-                  element={route.element}
-                  key={route.path}
-                />
-              );
-            })}
-          </Routes>
+          <AppRouter />
         </Suspense>
       </div>
     </div>
