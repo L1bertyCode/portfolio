@@ -1,8 +1,5 @@
-import s from "./Sidebar.module.scss";
-interface SidebarProps {
-  theme: string;
-  setTheme: () => void;
-}
-export function Sidebar(props: SidebarProps) {
+import s from "./Sidebar.module.scss"
+
+export  function Sidebar() {
   return <div className={s.sidebar}>Sidebar</div>;
 }
