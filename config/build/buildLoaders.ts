@@ -29,14 +29,7 @@ export function buildLoaders(
   };
   const svgLoader = {
     test: /\.svg$/,
-    use: [
-      {
-        loader: "@svgr/webpack",
-        options: {
-          native: true,
-        },
-      },
-    ],
+    use: ["@svgr/webpack"],
   };
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,

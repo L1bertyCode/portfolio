@@ -1,5 +1,5 @@
+import { Theme } from "@/providers/ThemeProvider/ui/ThemeProvider";
 import { createContext } from "react";
-import { Theme } from "../hooks/useTheme";
 
 export interface ThemeContextProrps {
   theme?: Theme;

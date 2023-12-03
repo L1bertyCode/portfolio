@@ -11,7 +11,7 @@ export interface AppButtonProps
 export function AppButton(props: AppButtonProps) {
   const {
     children,
-    variant = "outline",
+    variant = "clear",
     className,
     ...otherProps
   } = props;
