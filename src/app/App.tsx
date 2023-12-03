@@ -10,6 +10,7 @@ import { AppRouter } from "@/providers/AppRouter";
 
 export function App() {
   const { theme, setTheme } = useTheme();
+
   const loading = <div>Loading...</div>;
   return (
     <div className={`app ${theme}`}>

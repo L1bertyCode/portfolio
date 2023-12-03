@@ -9,7 +9,9 @@ export enum AppRoutes {
   ABOUT = "about",
   NOTFOUND = "not-found",
 }
-
+type ExtendsRouteProps = RouteProps & {
+  icon?: ReactNode;
+};
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.ABOUT]: "/about",
@@ -19,7 +21,10 @@ interface RoutesItem {
   element: ReactNode;
   path: string;
 }
-export const routesConfig: Record<AppRoutes, RouteProps> = {
+export const routesConfig: Record<
+  AppRoutes,
+  ExtendsRouteProps
+> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
     element: <MainPage />,

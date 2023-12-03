@@ -27,5 +27,24 @@ export function buildLoaders(
       "sass-loader",
     ],
   };
-  return [scssLoader, tsLoader];
+  const svgLoader = {
+    test: /\.svg$/,
+    use: [
+      {
+        loader: "@svgr/webpack",
+        options: {
+          native: true,
+        },
+      },
+    ],
+  };
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: "file-loader",
+      },
+    ],
+  };
+  return [scssLoader, tsLoader, svgLoader, fileLoader];
 }

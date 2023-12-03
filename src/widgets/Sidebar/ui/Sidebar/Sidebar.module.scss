@@ -8,3 +8,8 @@
 .collapsed {
   width: var(--sidebar-width-collapsed);
 }
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
