@@ -5,6 +5,8 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import { AppButton } from "@/shared/ui/AppButton/AppButton";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { LanguageSwitcher } from "@/features/LanguageSwitcher";
 interface SidebarProps {
   className?: string;
 }
@@ -13,21 +15,17 @@ const defaultCollpased =
     ? true
     : false || false;
 export function Sidebar(props: SidebarProps) {
+  const { t, i18n } = useTranslation();
   const { className } = props;
   const [collapsed, setCollapsed] = useState(
     defaultCollpased
   );
   const changeCollapse = () => {
-    console.log("collapsed", collapsed);
-
     setCollapsed((prevState) => !prevState);
-    console.log("collapsed", collapsed);
-
     localStorage.setItem(
       SIDEBAR_COLLAPSED_KEY,
       (!collapsed).toString()
     );
-    console.log("collapsed", collapsed);
   };
   return (
     <div
@@ -41,10 +39,10 @@ export function Sidebar(props: SidebarProps) {
     >
       <div className={s.links}>
         <div className={s.link}>
-          <AppLink to="/">Main</AppLink>
+          <AppLink to="/">{t("Main")}</AppLink>
         </div>
         <div className={s.link}>
-          <AppLink to="/about">About</AppLink>
+          <AppLink to="/about">{t("About")}</AppLink>
         </div>
       </div>
       <AppButton
@@ -56,6 +54,7 @@ export function Sidebar(props: SidebarProps) {
       </AppButton>
       <div className={s.switchers}>
         <ThemeSwitcher />
+        <LanguageSwitcher collapsed={collapsed} />
       </div>
     </div>
   );

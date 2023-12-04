@@ -18,7 +18,7 @@ export function buildPlugins({
       favicon: buildPaths.favicon,
       inject: "body",
     }),
-    new DefinePlugin({}),
+    new DefinePlugin({ __IS_DEV__: JSON.stringify(isDev) }),
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].css",

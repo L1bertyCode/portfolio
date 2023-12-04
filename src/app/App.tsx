@@ -1,4 +1,5 @@
 import "./styles/index.scss";
+import "@/shared/config/i18n/ii18n";
 import { Suspense } from "react";
 
 import { Navbar } from "@/widgets/Navbar";
