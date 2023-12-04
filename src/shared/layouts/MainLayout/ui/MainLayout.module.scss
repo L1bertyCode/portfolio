@@ -1,0 +1,16 @@
+.mainLayout {
+  display: grid;
+  grid-template-areas: "sidebar content toolbar";
+}
+.header {
+  grid-area: header;
+}
+.sidebar {
+  grid-area: sidebar;
+}
+.toolbar {
+  grid-area: toolbar;
+}
+.content {
+  grid-area: content;
+}

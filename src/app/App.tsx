@@ -16,9 +16,11 @@ export function App() {
       <Navbar />
       <div className="content">
         <Sidebar />
-        <Suspense fallback={loading}>
-          <AppRouter />
-        </Suspense>
+        <div className="page-wrapper">
+          <Suspense fallback={loading}>
+            <AppRouter />
+          </Suspense>
+        </div>
       </div>
     </div>
   );
