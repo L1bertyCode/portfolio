@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import {
   DefinePlugin,
+  HotModuleReplacementPlugin,
   WebpackPluginInstance,
 } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -23,5 +24,6 @@ export function buildPlugins({
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].css",
     }),
+    new HotModuleReplacementPlugin(),
   ];
 }
