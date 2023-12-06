@@ -12,50 +12,50 @@ interface SidebarProps {
 }
 const defaultCollpased =
   localStorage.getItem(SIDEBAR_COLLAPSED_KEY) === "true"
-    ? true
-    : false || false;
+  	? true
+  	: false || false;
 export function Sidebar(props: SidebarProps) {
-  const { t, i18n } = useTranslation();
-  const { className } = props;
-  const [collapsed, setCollapsed] = useState(
-    defaultCollpased
-  );
-  const changeCollapse = () => {
-    setCollapsed((prevState) => !prevState);
-    localStorage.setItem(
-      SIDEBAR_COLLAPSED_KEY,
-      (!collapsed).toString()
-    );
-  };
-  return (
-    <div
-      className={classNames(
-        s.sidebar,
-        {
-          [s.collapsed]: collapsed,
-        },
-        [className]
-      )}
-    >
-      <div className={s.links}>
-        <div className={s.link}>
-          <AppLink to="/">{t("Main")}</AppLink>
-        </div>
-        <div className={s.link}>
-          <AppLink to="/about">{t("About")}</AppLink>
-        </div>
-      </div>
-      <AppButton
-        variant="outline"
-        onClick={changeCollapse}
-        className={s.btnCollapsed}
-      >
-        {collapsed ? ">" : "<"}
-      </AppButton>
-      <div className={s.switchers}>
-        <ThemeSwitcher />
-        <LanguageSwitcher collapsed={collapsed} />
-      </div>
-    </div>
-  );
+	const { t, i18n } = useTranslation();
+	const { className } = props;
+	const [collapsed, setCollapsed] = useState(
+		defaultCollpased
+	);
+	const changeCollapse = () => {
+		setCollapsed((prevState) => !prevState);
+		localStorage.setItem(
+			SIDEBAR_COLLAPSED_KEY,
+			(!collapsed).toString()
+		);
+	};
+	return (
+		<div
+			className={classNames(
+				s.sidebar,
+				{
+					[s.collapsed]: collapsed,
+				},
+				[className]
+			)}
+		>
+			<div className={s.links}>
+				<div className={s.link}>
+					<AppLink to="/">{t("Main")}</AppLink>
+				</div>
+				<div className={s.link}>
+					<AppLink to="/about">{t("About")}</AppLink>
+				</div>
+			</div>
+			<AppButton
+				variant="outline"
+				onClick={changeCollapse}
+				className={s.btnCollapsed}
+			>
+				{collapsed ? ">" : "<"}
+			</AppButton>
+			<div className={s.switchers}>
+				<ThemeSwitcher />
+				<LanguageSwitcher collapsed={collapsed} />
+			</div>
+		</div>
+	);
 }

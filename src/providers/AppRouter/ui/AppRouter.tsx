@@ -1,13 +1,13 @@
 import {
-  routesConfig,
-  routesConfigArray,
+	routesConfig,
+	routesConfigArray,
 } from "@/shared/config/routes/routesConfig";
 import { Route, Routes } from "react-router-dom";
 
 export function AppRouter() {
-  return (
-    <Routes>
-      {/* {routesConfigArray.map((route) => {
+	return (
+		<Routes>
+			{/* {routesConfigArray.map((route) => {
         return (
           <Route
             path={route.path}
@@ -16,17 +16,17 @@ export function AppRouter() {
           />
         );
       })} */}
-      {Object.values(routesConfig).map(
-        ({ path, element }) => {
-          return (
-            <Route
-              path={path}
-              element={element}
-              key={path}
-            />
-          );
-        }
-      )}
-    </Routes>
-  );
+			{Object.values(routesConfig).map(
+				({ path, element }) => {
+					return (
+						<Route
+							path={path}
+							element={element}
+							key={path}
+						/>
+					);
+				}
+			)}
+		</Routes>
+	);
 }

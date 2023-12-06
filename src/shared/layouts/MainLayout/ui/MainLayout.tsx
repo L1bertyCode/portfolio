@@ -12,20 +12,20 @@ interface MainLayoutProps {
 }
 
 export const MainLayout = memo((props: MainLayoutProps) => {
-  const { className, header, sidebar, toolbar, content } =
+	const { className, header, sidebar, toolbar, content } =
     props;
-  return (
-    <div
-      className={classNames(s.mainLayout, {}, [className])}
-    >
-      <div className={s.header}>{header}</div>
-      <div className="content">
-        <div className={s.sidebar}>{sidebar}</div>
-        <div className={s.content}>{content}</div>
-        {toolbar ? (
-          <div className={s.toolbar}>{toolbar}</div>
-        ) : null}
-      </div>
-    </div>
-  );
+	return (
+		<div
+			className={classNames(s.mainLayout, {}, [className])}
+		>
+			<div className={s.header}>{header}</div>
+			<div className="content">
+				<div className={s.sidebar}>{sidebar}</div>
+				<div className={s.content}>{content}</div>
+				{toolbar ? (
+					<div className={s.toolbar}>{toolbar}</div>
+				) : null}
+			</div>
+		</div>
+	);
 });
