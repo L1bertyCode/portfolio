@@ -13,9 +13,9 @@ type ExtendsRouteProps = RouteProps & {
   icon?: ReactNode;
 };
 export const RoutePath: Record<AppRoutes, string> = {
-	[AppRoutes.MAIN]: "/",
-	[AppRoutes.ABOUT]: "/about",
-	[AppRoutes.NOTFOUND]: "*",
+  [AppRoutes.MAIN]: "/",
+  [AppRoutes.ABOUT]: "/about",
+  [AppRoutes.NOTFOUND]: "*",
 };
 interface RoutesItem {
   element: ReactNode;
@@ -25,21 +25,21 @@ export const routesConfig: Record<
   AppRoutes,
   ExtendsRouteProps
 > = {
-	[AppRoutes.MAIN]: {
-		path: RoutePath.main,
-		element: <MainPage />,
-	},
-	[AppRoutes.ABOUT]: {
-		path: RoutePath.about,
-		element: <AboutPage />,
-	},
-	[AppRoutes.NOTFOUND]: {
-		path: RoutePath["not-found"],
-		element: <NotFoundPage />,
-	},
+  [AppRoutes.MAIN]: {
+    path: RoutePath.main,
+    element: <MainPage />,
+  },
+  [AppRoutes.ABOUT]: {
+    path: RoutePath.about,
+    element: <AboutPage />,
+  },
+  [AppRoutes.NOTFOUND]: {
+    path: RoutePath["not-found"],
+    element: <NotFoundPage />,
+  },
 };
 export const routesConfigArray: RoutesItem[] = [
-	{ element: <MainPage />, path: "/" },
-	{ element: <AboutPage />, path: "/about" },
-	{ element: <NotFoundPage />, path: "*" },
+  { element: <MainPage />, path: "/" },
+  { element: <AboutPage />, path: "/about" },
+  { element: <NotFoundPage />, path: "*" },
 ];

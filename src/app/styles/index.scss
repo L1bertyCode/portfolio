@@ -1,9 +1,9 @@
-@import url("./reset.scss");
-@import url("./variables.scss");
-@import url("./themes/light.scss");
-@import url("./themes/dark.scss");
-@import url("./themes/blue.scss");
-@import url("./themes/orange.scss");
+@import "./reset";
+@import "./variables";
+@import "./themes/light";
+@import "./themes/dark";
+@import "./themes/blue";
+@import "./themes/orange";
 
 html,
 body,
@@ -19,6 +19,7 @@ body,
   display: flex;
   height: calc(100vh -var(--navbar-height));
 }
+
 .page-wrapper {
   flex-grow: 1;
   padding: 20px;

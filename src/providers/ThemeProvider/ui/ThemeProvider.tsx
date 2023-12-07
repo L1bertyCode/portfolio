@@ -13,18 +13,18 @@ export enum Theme {
 }
 const defaultTheme =
   (localStorage.getItem(
-  	LOCAL_STORAGE_THEME_KEY
+    LOCAL_STORAGE_THEME_KEY
   ) as Theme) || Theme.DARK;
 export function ThemeProvider(props: ThemeProviderProps) {
-	const [theme, setTheme] = useState<Theme>(defaultTheme);
-	const { children } = props;
-	const defaulProps = useMemo(
-		() => ({ theme: theme, setTheme: setTheme }),
-		[theme]
-	);
-	return (
-		<ThemeContext.Provider value={defaulProps}>
-			{children}
-		</ThemeContext.Provider>
-	);
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
+  const { children } = props;
+  const defaulProps = useMemo(
+    () => ({ theme: theme, setTheme: setTheme }),
+    [theme]
+  );
+  return (
+    <ThemeContext.Provider value={defaulProps}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }

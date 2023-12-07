@@ -2,6 +2,7 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
 import { AppButton } from "@/shared/ui/AppButton/AppButton";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 // import s from "./LanguageSwitcher.module.scss";
 
@@ -20,7 +21,10 @@ export const LanguageSwitcher = memo(
       );
     };
     return (
-      <AppButton onClick={changeLanguage}>
+      <AppButton
+        className={classNames("", {}, [className])}
+        onClick={changeLanguage}
+      >
         {collapsed ? t("ShortLangauge") : t("Langauge")}
       </AppButton>
     );

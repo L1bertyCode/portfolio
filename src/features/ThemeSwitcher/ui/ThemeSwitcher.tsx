@@ -7,16 +7,16 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 export function ThemeSwitcher(props: ThemeSwitcherProps) {
-	const { theme, setTheme } = useTheme();
-	const { className } = props;
-	return (
-		<AppButton
-			className={classNames(s.themeSwitcher, {}, [
-				className,
-			])}
-			onClick={() => setTheme(theme)}
-		>
-			<ThemeIcon className={s.icon} />
-		</AppButton>
-	);
+  const { theme, setTheme } = useTheme();
+  const { className } = props;
+  return (
+    <AppButton
+      className={classNames(s.themeSwitcher, {}, [
+        className,
+      ])}
+      onClick={() => setTheme(theme)}
+    >
+      <ThemeIcon className={s.icon} />
+    </AppButton>
+  );
 }

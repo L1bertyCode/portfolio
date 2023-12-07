@@ -9,21 +9,22 @@ export interface AppButtonProps
   className?: string;
 }
 export function AppButton(props: AppButtonProps) {
-	const {
-		children,
-		variant = "clear",
-		className,
-		...otherProps
-	} = props;
-	return (
-		<button
-			{...otherProps}
-			className={classNames(s.appButton, {}, [
-				s[variant],
-				className,
-			])}
-		>
-			{children}
-		</button>
-	);
+  const {
+    children,
+    variant = "clear",
+    className,
+    ...otherProps
+  } = props;
+  return (
+    <button
+      {...otherProps}
+      type="button"
+      className={classNames(s.appButton, {}, [
+        s[variant],
+        className,
+      ])}
+    >
+      {children}
+    </button>
+  );
 }

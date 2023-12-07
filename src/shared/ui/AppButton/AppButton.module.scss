@@ -6,10 +6,12 @@
   background: none;
   padding: 0;
   margin: 0;
+
   &:hover {
     opacity: var(--opacity70);
   }
 }
+
 // .clear {
 // }
 .outline {
@@ -17,6 +19,7 @@
   padding: 5px 10px;
   border-radius: var(--b-raduis-s);
 }
+
 .filled {
   background-color: var(--bg-color);
 }
