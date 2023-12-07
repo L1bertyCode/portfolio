@@ -17,7 +17,9 @@ export const LanguageSwitcher = memo(
     const { t, i18n } = useTranslation();
     const changeLanguage = () => {
       i18n.changeLanguage(
-        i18n.language === "en" ? "ru" : "en"
+        i18n.language === "en"
+          ? "ru"
+          : "en"
       );
     };
     return (
@@ -25,7 +27,9 @@ export const LanguageSwitcher = memo(
         className={classNames("", {}, [className])}
         onClick={changeLanguage}
       >
-        {collapsed ? t("ShortLangauge") : t("Langauge")}
+        {collapsed
+          ? t("ShortLangauge")
+          : t("Langauge")}
       </AppButton>
     );
   }

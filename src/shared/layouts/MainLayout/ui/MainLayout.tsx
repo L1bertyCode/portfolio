@@ -22,9 +22,11 @@ export const MainLayout = memo((props: MainLayoutProps) => {
       <div className="content">
         <div className={s.sidebar}>{sidebar}</div>
         <div className={s.content}>{content}</div>
-        {toolbar ? (
-          <div className={s.toolbar}>{toolbar}</div>
-        ) : null}
+        {toolbar
+          ? (
+            <div className={s.toolbar}>{toolbar}</div>
+          )
+          : null}
       </div>
     </div>
   );

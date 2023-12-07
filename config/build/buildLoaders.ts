@@ -31,7 +31,9 @@ export function buildLoaders(
   const scssLoader = {
     test: /\.(saas|scss|less|css)$/i,
     use: [
-      isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+      isDev
+        ? "style-loader"
+        : MiniCssExtractPlugin.loader,
       {
         loader: "css-loader",
         options: {

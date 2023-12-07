@@ -50,7 +50,9 @@ export function Sidebar(props: SidebarProps) {
         onClick={changeCollapse}
         className={s.btnCollapsed}
       >
-        {collapsed ? ">" : "<"}
+        {collapsed
+          ? ">"
+          : "<"}
       </AppButton>
       <div className={s.switchers}>
         <ThemeSwitcher />
