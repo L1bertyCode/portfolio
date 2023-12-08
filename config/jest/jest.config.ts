@@ -9,6 +9,7 @@ const config: Config = {
   clearMocks: true,
   testEnvironment: "jsdom",
   coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
+  rootDir: "../../",
   moduleDirectories: ["node_modules"],
   moduleFileExtensions: [
     "js",
@@ -23,7 +24,6 @@ const config: Config = {
   testMatch: [
     "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
   ],
-  rootDir: "../../",
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,

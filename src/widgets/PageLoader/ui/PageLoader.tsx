@@ -1,23 +1,22 @@
 import { memo } from "react";
-import s from "./NotFoundPage.module.scss";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
-interface NotFoundPageProps {
+import s from "./PageLoader.module.scss";
+import { Loader } from "@/shared/ui/Loader/Loader";
+
+interface PageLoaderProps {
   className?: string;
 }
 
-const NotFoundPage = memo((props: NotFoundPageProps) => {
+export const PageLoader = memo((props: PageLoaderProps) => {
   const { className } = props;
   const { t } = useTranslation();
   return (
     <div
-      className={classNames(s.notFoundPage, {}, [
-        className,
-      ])}
+      className={classNames(s.pageLoader, {}, [className])}
     >
-      <h2>{t("Page not found")}</h2>
+      <Loader />
     </div>
   );
 });
-export default NotFoundPage;

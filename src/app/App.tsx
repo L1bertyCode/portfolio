@@ -7,11 +7,12 @@ import { Sidebar } from "@/widgets/Sidebar";
 
 import { useTheme } from "@/shared/lib/hooks/useTheme";
 import { AppRouter } from "@/providers/AppRouter";
+import { PageLoader } from "@/widgets/PageLoader/ui/PageLoader";
 
 export function App() {
   const { theme } = useTheme();
 
-  const loading = <div>Loading...</div>;
+  const loading = <PageLoader />;
   return (
     <div className={`app ${theme}`}>
       <Navbar />

@@ -1,6 +1,5 @@
 import {
   routesConfig,
-  routesConfigArray,
 } from "@/shared/config/routes/routesConfig";
 import { Route, Routes } from "react-router-dom";
 

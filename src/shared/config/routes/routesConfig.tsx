@@ -15,7 +15,7 @@ type ExtendsRouteProps = RouteProps & {
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.ABOUT]: "/about",
-  [AppRoutes.NOTFOUND]: "*",
+  [AppRoutes.NOTFOUND]: "/*",
 };
 interface RoutesItem {
   element: ReactNode;
