@@ -1,6 +1,5 @@
 .appButton {
   cursor: pointer;
-  color: var(--bg-color);
   border: none;
   outline: none;
   background: none;
@@ -11,11 +10,17 @@
     opacity: var(--opacity70);
   }
 }
-
-// .clear {
-// }
+.clear {
+  color: var(--bg-color);
+}
+.clear-inverted {
+}
 .outline {
   border: 2px solid var(--bg-color);
+  padding: 5px 10px;
+  border-radius: var(--b-raduis-s);
+}
+.outline-inverted {
   padding: 5px 10px;
   border-radius: var(--b-raduis-s);
 }

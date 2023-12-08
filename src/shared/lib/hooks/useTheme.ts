@@ -1,9 +1,7 @@
-import {
-  LOCAL_STORAGE_THEME_KEY,
-  Theme,
-} from "@/providers/ThemeProvider/ui/ThemeProvider";
+
 import { useContext } from "react";
 import { ThemeContext } from "@/shared/lib/context/ThemeContext";
+import { LOCAL_STORAGE_THEME_KEY, Theme } from "@/app/providers/ThemeProvider/ui/ThemeProvider";
 
 interface UseThemeResult {
   theme: Theme;
@@ -33,6 +31,8 @@ export function useTheme(): UseThemeResult {
     }
     setTheme?.(newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+    document.body.className = newTheme;
+
   };
 
   return {

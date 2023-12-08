@@ -1,6 +1,6 @@
 import { ThemeContext } from "@/shared/lib/context/ThemeContext";
 
-import { ReactNode, useMemo, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 interface ThemeProviderProps {
   children: ReactNode;
 }
@@ -18,6 +18,10 @@ const defaultTheme =
 export function ThemeProvider(props: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
   const { children } = props;
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+  }, [theme]);
   const defaulProps = useMemo(
     () => ({ theme: theme, setTheme: setTheme }),
     [theme]

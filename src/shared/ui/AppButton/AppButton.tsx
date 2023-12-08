@@ -1,7 +1,12 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import s from "./AppButton.module.scss";
 import { classNames } from "@/shared/lib/classNames/classNames";
-type AppButtonVariant = "clear" | "outline" | "filled";
+type AppButtonVariant =
+  | "clear"
+  | "clear-inverted"
+  | "outline-inverted"
+  | "outline"
+  | "filled";
 export interface AppButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
