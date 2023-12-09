@@ -9,8 +9,10 @@ const config: Config = {
   clearMocks: true,
   testEnvironment: "jsdom",
   coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
+
   rootDir: "../../",
   moduleDirectories: ["node_modules"],
+  modulePaths: ["<rootDir>src"],
   moduleFileExtensions: [
     "js",
     "mjs",
@@ -21,10 +23,17 @@ const config: Config = {
     "json",
     "node",
   ],
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
+
   testMatch: [
     "<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)",
   ],
-
+  setupFiles: ["<rootDir>config/jest/setupTests.ts"],
+  setupFilesAfterEnv: [
+    "<rootDir>config/jest/setupTests.ts",
+  ],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -92,7 +101,6 @@ const config: Config = {
   // An array of file extensions your modules use
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],

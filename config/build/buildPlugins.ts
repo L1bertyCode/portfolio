@@ -6,7 +6,7 @@ import {
 } from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BuildOptions } from "./types/config";
-
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 export function buildPlugins({
   mode,
   isDev,
@@ -25,5 +25,6 @@ export function buildPlugins({
       chunkFilename: "css/[name].[contenthash:8].css",
     }),
     new HotModuleReplacementPlugin(),
+    new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
 }
