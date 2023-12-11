@@ -15,7 +15,7 @@ export const LanguageSwitcher = memo(
   (props: LanguageSwitcherProps) => {
     const { className, collapsed } = props;
     const { t, i18n } = useTranslation();
-    const changeLanguage = () => {
+    const changeLanguage =  () => {
       i18n.changeLanguage(
         i18n.language === "en"
           ? "ru"

@@ -25,12 +25,10 @@ const config: Config = {
     "node",
   ],
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>src/$1",
     "\\.(css|scss)$": "identity-obj-proxy",
-    "\\.(svg|jpeg)$": path.resolve(
-      __dirname,
-      "jestEmptyComponent.tsx"
-    ),
+    "\\.svg$":
+      "<rootDir>config/jest/jestEmptyComponent.tsx",
+    "@/(.*)$": "<rootDir>src/$1",
   },
   setupFilesAfterEnv: [
     "<rootDir>config/jest/setupTests.ts",

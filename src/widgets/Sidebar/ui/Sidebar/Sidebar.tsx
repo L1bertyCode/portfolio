@@ -29,6 +29,7 @@ export function Sidebar(props: SidebarProps) {
   };
   return (
     <div
+      data-testid="sidebar"
       className={classNames(
         s.sidebar,
         {
@@ -37,22 +38,21 @@ export function Sidebar(props: SidebarProps) {
         [className]
       )}
     >
-      <div className={s.links}>
+      {/* <div className={s.links}>
         <div className={s.link}>
           <AppLink to="/">{t("Main")}</AppLink>
         </div>
         <div className={s.link}>
           <AppLink to="/about">{t("About")}</AppLink>
         </div>
-      </div>
+      </div> */}
       <AppButton
+        data-testid="sidebar-toggle"
         variant="outline"
         onClick={changeCollapse}
         className={s.btnCollapsed}
       >
-        {collapsed
-          ? ">"
-          : "<"}
+        {collapsed ? ">" : "<"}
       </AppButton>
       <div className={s.switchers}>
         <ThemeSwitcher />
