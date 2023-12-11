@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import s from "./AppButton.module.scss";
-import { classNames } from "@/shared/lib/classNames/classNames";
+import { classNames } from "../../lib/classNames/classNames";
 type AppButtonVariant =
   | "clear"
   | "clear-inverted"
