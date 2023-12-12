@@ -1,6 +1,11 @@
 import { ThemeContext } from "@/shared/lib/context/ThemeContext";
 
-import { ReactNode, useEffect, useMemo, useState } from "react";
+import {
+  ReactNode,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 interface ThemeProviderProps {
   children: ReactNode;
 }
@@ -14,7 +19,7 @@ export enum Theme {
 const defaultTheme =
   (localStorage.getItem(
     LOCAL_STORAGE_THEME_KEY
-  ) as Theme) || Theme.DARK;
+  ) as Theme) || Theme.LIGHT;
 export function ThemeProvider(props: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
   const { children } = props;

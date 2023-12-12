@@ -1,28 +1,29 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { AppButton } from "./AppButton";
+import { ThemeDecorator } from "@/shared/config/StorybookDecorators";
+import { Theme } from "@/app/providers/ThemeProvider/ui/ThemeProvider";
 
 const meta: Meta<typeof AppButton> = {
   component: AppButton,
   title: "shared/AppButton",
-  decorators: [
-    (Story) => (
-      <div className="app_dark_theme">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof AppButton>;
 
-export const Clear: Story = {
+export const InvertedClear: Story = {
   render: () => (
     <AppButton variant="clear-inverted">Text</AppButton>
   ),
 };
-export const Ouline: Story = {
+export const InvertedOuline: Story = {
+  render: () => (
+    <AppButton variant="outline-inverted">Text</AppButton>
+  ),
+};
+export const InvertedOulineOrange: Story = {
+  decorators: [ThemeDecorator(Theme.ORANGE)],
   render: () => (
     <AppButton variant="outline-inverted">Text</AppButton>
   ),

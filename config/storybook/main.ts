@@ -46,26 +46,24 @@ const config: StorybookConfig = {
     };
 
     config.module?.rules?.push(buildScssLoader(true));
-    // if (config?.module?.rules) {
-    //   const imageRule = config.module?.rules?.find(
-    //     (rule) => {
-    //       if (
-    //         typeof rule !== "string" &&
-    //         rule.test instanceof RegExp
-    //       ) {
-    //         return rule.test.test(".svg");
-    //       }
-    //     }
-    //   );
 
-    //   if (imageRule && typeof imageRule !== "string") {
-    //     imageRule.exclude = /\.svg$/;
-    //   }
-    //   config.module?.rules?.push({
-    //     test: /\.svg$/,
-    //     use: ["@svgr/webpack"],
-    //   });
-    // }
+    
+    const imageRule = config.module?.rules?.find((rule) => {
+      const test = (rule as { test: RegExp }).test;
+
+      if (!test) {
+        return false;
+      }
+
+      return test.test(".svg");
+    }) as { [key: string]: any };
+
+    imageRule.exclude = /\.svg$/;
+
+    config.module?.rules?.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
 
     config.plugins?.push(
       new DefinePlugin({

@@ -26,7 +26,7 @@ export function useTheme(): UseThemeResult {
       newTheme = Theme.DARK;
       break;
     default:
-      newTheme = Theme.DARK;
+      newTheme = Theme.LIGHT;
       break;
     }
     setTheme?.(newTheme);

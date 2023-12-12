@@ -3,7 +3,7 @@ import s from "./Sidebar.module.scss";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { AppButton } from "@/shared/ui/AppButton/AppButton";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "@/features/LanguageSwitcher";
