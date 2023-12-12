@@ -4,16 +4,26 @@ import { AppButton } from "./AppButton";
 
 const meta: Meta<typeof AppButton> = {
   component: AppButton,
+  title: "shared/AppButton",
+  decorators: [
+    (Story) => (
+      <div className="app_dark_theme">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof AppButton>;
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/api/csf
- * to learn how to use render functions.
- */
 export const Clear: Story = {
-  render: () => <AppButton>AppButton</AppButton>,
+  render: () => (
+    <AppButton variant="clear-inverted">Text</AppButton>
+  ),
+};
+export const Ouline: Story = {
+  render: () => (
+    <AppButton variant="outline-inverted">Text</AppButton>
+  ),
 };

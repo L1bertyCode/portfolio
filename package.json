@@ -12,8 +12,8 @@
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "storybook:start": "storybook dev -p 6006 -c ./storybook",
-    "storybook:buid": "storybook build -c ./storybook"
+    "storybook:start": "storybook dev -p 6006 -c ./config/storybook",
+    "storybook:buid": "storybook build -c ./config/storybook"
   },
   "keywords": [],
   "author": "",

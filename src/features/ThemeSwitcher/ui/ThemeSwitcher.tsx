@@ -16,7 +16,6 @@ export function ThemeSwitcher(props: ThemeSwitcherProps) {
       ])}
       onClick={() => setTheme(theme)}
     >
-      123
       <ThemeIcon className={s.icon} />
     </AppButton>
   );

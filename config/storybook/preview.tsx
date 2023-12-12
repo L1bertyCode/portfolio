@@ -1,5 +1,7 @@
 import type { Preview } from "@storybook/react";
 
+import { StyleDecorator } from "../../src/shared/config/StyleDecorator/StyleDecorator.tsx";
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -10,6 +12,7 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [StyleDecorator],
 };
 
 export default preview;

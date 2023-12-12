@@ -33,6 +33,6 @@ export function buildWebpackConfig({
       rules: buildLoaders(isDev),
     },
     devServer: buildDevServer(port),
-    devtool: "inline-source-map",
+    devtool: isDev ? "inline-source-map" : undefined,
   };
 }

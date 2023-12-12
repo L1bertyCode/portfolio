@@ -5,13 +5,13 @@ import {
   ProvidePlugin,
 } from "webpack";
 import path from "path";
-import { BuildPaths } from "../config/build/types/config";
-import { buildScssLoader } from "../config/build/loaders/buildScssLoader";
+import { BuildPaths } from "../build/types/config";
+import { buildScssLoader } from "../build/loaders/buildScssLoader";
 
 const config: StorybookConfig = {
   stories: [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../../src/**/*.mdx",
+    "../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-links",
@@ -31,22 +31,21 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   webpackFinal: async (config: Configuration) => {
-    const paths: BuildPaths = {
+    const buildPaths: BuildPaths = {
       build: "",
       html: "",
       favicon: "",
       entry: "",
       src: path.resolve(__dirname, "..", "..", "src"),
     };
-    config.resolve?.modules?.push(paths.src);
     config.resolve?.extensions?.push(".ts", ".tsx");
-    config.resolve?.extensions?.push(".ts", ".tsx");
-    config.module?.rules?.push(buildScssLoader(true));
+    config!.resolve?.modules?.push(buildPaths.src);
     config!.resolve!.alias = {
       ...config!.resolve!.alias,
-      "@": paths.src,
+      "@": buildPaths.src,
     };
 
+    config.module?.rules?.push(buildScssLoader(true));
     // if (config?.module?.rules) {
     //   const imageRule = config.module?.rules?.find(
     //     (rule) => {
