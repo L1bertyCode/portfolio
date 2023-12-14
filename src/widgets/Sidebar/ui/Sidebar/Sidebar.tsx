@@ -7,6 +7,7 @@ import { AppButton } from "@/shared/ui/AppButton/AppButton";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "@/features/LanguageSwitcher";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
 interface SidebarProps {
   className?: string;
 }
@@ -38,14 +39,14 @@ export function Sidebar(props: SidebarProps) {
         [className]
       )}
     >
-      {/* <div className={s.links}>
+      <div className={s.links}>
         <div className={s.link}>
           <AppLink to="/">{t("Main")}</AppLink>
         </div>
         <div className={s.link}>
           <AppLink to="/about">{t("About")}</AppLink>
         </div>
-      </div> */}
+      </div>
       <AppButton
         data-testid="sidebar-toggle"
         variant="outline"
