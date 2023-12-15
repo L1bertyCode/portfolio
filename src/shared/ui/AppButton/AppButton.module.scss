@@ -12,26 +12,31 @@
 }
 
 .clear {
-  color: var(--inverted-text-color);
-}
-
-.clear-inverted {
   color: var(--text-color);
 }
 
+.clear-inverted {
+  color: var(--inverted-text-color);
+}
+
 .outline {
+  color: var(--text-color);
   border: 2px solid var(--text-color);
   padding: 5px 10px;
   border-radius: var(--b-raduis-s);
 }
 
 .outline-inverted {
-  color: var(--text-color);
-  border: 2px solid var(--text-color);
+  color: var(--inverted-text-color);
+  border: 2px solid var(--inverted-text-color);
   padding: 5px 10px;
   border-radius: var(--b-raduis-s);
 }
 
 .filled {
-  background-color: var(--bg-color);
+  background-color: var(--inverted-text-color);
+}
+
+.filled-inverted {
+  background-color: var(--text-color);
 }

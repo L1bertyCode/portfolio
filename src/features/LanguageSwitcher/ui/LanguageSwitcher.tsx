@@ -15,21 +15,18 @@ export const LanguageSwitcher = memo(
   (props: LanguageSwitcherProps) => {
     const { className, collapsed } = props;
     const { t, i18n } = useTranslation();
-    const changeLanguage =  () => {
+    const changeLanguage = () => {
       i18n.changeLanguage(
-        i18n.language === "en"
-          ? "ru"
-          : "en"
+        i18n.language === "en" ? "ru" : "en"
       );
     };
     return (
       <AppButton
+        variant="clear-inverted"
         className={classNames("", {}, [className])}
         onClick={changeLanguage}
       >
-        {collapsed
-          ? t("ShortLangauge")
-          : t("Langauge")}
+        {collapsed ? t("ShortLangauge") : t("Langauge")}
       </AppButton>
     );
   }

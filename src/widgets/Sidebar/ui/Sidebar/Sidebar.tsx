@@ -8,6 +8,11 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "@/features/LanguageSwitcher";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { RoutePath } from "@/shared/config/routes/routesConfig";
+
+import MainIcon from "@/shared/assets/icons/main-20-20.svg";
+import AboutIcon from "@/shared/assets/icons/about-20-20.svg";
+
 interface SidebarProps {
   className?: string;
 }
@@ -41,15 +46,25 @@ export function Sidebar(props: SidebarProps) {
     >
       <div className={s.links}>
         <div className={s.link}>
-          <AppLink to="/">{t("Main")}</AppLink>
+          <AppLink to={RoutePath.main}>
+            <MainIcon className={s.icon} />
+            {!collapsed ? (
+              <span className={s.text}>{t("Main")}</span>
+            ) : undefined}
+          </AppLink>
         </div>
         <div className={s.link}>
-          <AppLink to="/about">{t("About")}</AppLink>
+          <AppLink to={RoutePath.about}>
+            <AboutIcon className={s.icon} />
+            {!collapsed ? (
+              <span className={s.text}>{t("About")}</span>
+            ) : undefined}
+          </AppLink>
         </div>
       </div>
       <AppButton
         data-testid="sidebar-toggle"
-        variant="outline"
+        variant="outline-inverted"
         onClick={changeCollapse}
         className={s.btnCollapsed}
       >
