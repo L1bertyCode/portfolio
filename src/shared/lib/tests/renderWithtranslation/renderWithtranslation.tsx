@@ -6,7 +6,7 @@ import { I18nextProvider } from "react-i18next";
 export function renderWithTranslation(
   component: ReactNode
 ) {
-  return render(
+  render(
     <I18nextProvider i18n={i18nforTests}>
       {component}
     </I18nextProvider>

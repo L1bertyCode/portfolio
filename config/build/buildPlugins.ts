@@ -13,7 +13,7 @@ export function buildPlugins({
   buildPaths,
   port,
 }: BuildOptions): WebpackPluginInstance[] {
-  return [
+  let plugins = [
     new HtmlWebpackPlugin({
       template: buildPaths.html,
       favicon: buildPaths.favicon,
@@ -24,7 +24,15 @@ export function buildPlugins({
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].css",
     }),
-    new HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
+  if (isDev) {
+    //@ts-ignore
+    plugins.push(new HotModuleReplacementPlugin());
+    plugins.push(
+      //@ts-ignore
+      new BundleAnalyzerPlugin({ openAnalyzer: false })
+    );
+  }
+
+  return plugins;
 }
