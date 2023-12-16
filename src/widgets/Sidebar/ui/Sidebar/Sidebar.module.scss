@@ -19,17 +19,21 @@
   flex-direction: column;
   align-items: center;
 }
+
 .link {
   position: relative;
   padding: 6px 12px;
   min-height: 30px;
 }
+
 .text {
   margin-left: 6px;
 }
+
 .icon {
   fill: var(--inverted-text-color);
 }
+
 .btnCollapsed {
   position: absolute;
   right: 8px;

@@ -18,7 +18,12 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "i18next"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "i18next",
+    "react-hooks"
+  ],
   "rules": {
     "indent": ["error", 2],
     "linebreak-style": ["error", "windows"],
@@ -40,10 +45,12 @@
       "error",
       { "code": 120, "ignoreComments": true }
     ],
-    //,
-    // globals: {
-    //   __IS_DEV__: true,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    // "global": {
+    //   "__IS_DEV__": true
     // },
+
     "overrides": [
       {
         "files": ["**/src/**/*.{test,stories}.{ts,tsx}"],
