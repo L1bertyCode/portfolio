@@ -14,6 +14,8 @@ import {
 } from "@/shared/lib/classNames/classNames";
 
 import s from "./Modal.module.scss";
+import { Portal } from "../Portal/Portal";
+import { AppButton } from "../AppButton/AppButton";
 
 interface ModalProps {
   children: ReactNode;
@@ -60,16 +62,25 @@ export const Modal = memo((props: ModalProps) => {
   };
 
   return (
-    <div className={classNames(s.modal, mods, [className])}>
-      <div className={s.overlay} onClick={closeHandler}>
-        <div
-          className={s.content}
-          onClick={onContetntClick}
-        >
-          {children}
-          <button onClick={closeHandler}>isOpen</button>
+    <Portal>
+      <div
+        className={classNames(s.modal, mods, [className])}
+      >
+        <div className={s.overlay} onClick={closeHandler}>
+          <div
+            className={s.content}
+            onClick={onContetntClick}
+          >
+            {children}
+            <AppButton
+              variant="filled-inverted"
+              onClick={closeHandler}
+            >
+              x
+            </AppButton>
+          </div>
         </div>
       </div>
-    </div>
+    </Portal>
   );
 });

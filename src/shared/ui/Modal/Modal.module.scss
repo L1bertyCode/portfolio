@@ -17,9 +17,10 @@
 }
 
 .content {
+  color: var(--inverted-text-color);
   padding: 20px;
   border-radius: var(--b-raduis-s);
-  background-color: var(--bg-color);
+  background-color: var(--inverted-bg-color);
   transition: var(--transition-delay) transform;
   transform: scale(0.5);
   max-width: 60%;

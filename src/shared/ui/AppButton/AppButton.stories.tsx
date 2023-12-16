@@ -13,18 +13,16 @@ export default meta;
 type Story = StoryObj<typeof AppButton>;
 
 export const InvertedClear: Story = {
-  render: () => (
-    <AppButton variant="clear-inverted">Text</AppButton>
-  ),
+  render: () => <AppButton variant="clear">Text</AppButton>,
 };
 export const InvertedOuline: Story = {
   render: () => (
-    <AppButton variant="outline-inverted">Text</AppButton>
+    <AppButton variant="outline">Text</AppButton>
   ),
 };
 export const InvertedOulineOrange: Story = {
   decorators: [ThemeDecorator(Theme.ORANGE)],
   render: () => (
-    <AppButton variant="outline-inverted">Text</AppButton>
+    <AppButton variant="outline">Text</AppButton>
   ),
 };

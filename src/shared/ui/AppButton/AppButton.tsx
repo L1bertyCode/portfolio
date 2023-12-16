@@ -7,7 +7,8 @@ type AppButtonVariant =
   | "clear-inverted"
   | "outline-inverted"
   | "outline"
-  | "filled";
+  | "filled"
+  | "filled-inverted";
 interface AppButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;

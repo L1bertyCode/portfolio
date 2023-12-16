@@ -11,7 +11,6 @@ import { Theme } from "@/app/providers/ThemeProvider/ui/ThemeProvider";
 const meta: Meta<typeof ThemeSwitcher> = {
   component: ThemeSwitcher,
   title: "features/ThemeSwitcher",
-  decorators: [(Story: StoryFn) => <div></div>],
 };
 
 export default meta;
