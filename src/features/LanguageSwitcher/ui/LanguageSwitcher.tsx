@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 
-import { AppButton } from "@/shared/ui/AppButton/AppButton";
+import { Button } from "@/shared/ui/Button/Button";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 // import s from "./LanguageSwitcher.module.scss";
@@ -21,13 +21,13 @@ export const LanguageSwitcher = memo(
       );
     };
     return (
-      <AppButton
+      <Button
         variant="clear-inverted"
         className={classNames("", {}, [className])}
         onClick={changeLanguage}
       >
         {collapsed ? t("ShortLangauge") : t("Langauge")}
-      </AppButton>
+      </Button>
     );
   }
 );

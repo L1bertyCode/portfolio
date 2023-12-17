@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./PageError.module.scss";
-import { AppButton } from "@/shared/ui/AppButton/AppButton";
+import { Button } from "@/shared/ui/Button/Button";
 
 interface PageErrorProps {
   className?: string;
@@ -22,12 +22,12 @@ export const PageError = memo((props: PageErrorProps) => {
       <p className={s.text}>
         {t("An unexpected error occurred")}
       </p>
-      <AppButton
+      <Button
         variant="outline-inverted"
         onClick={reloadPage}
       >
         {t("Refresh the page")}
-      </AppButton>
+      </Button>
     </div>
   );
 });

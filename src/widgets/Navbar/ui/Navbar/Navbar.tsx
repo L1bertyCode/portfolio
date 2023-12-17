@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { Modal } from "@/shared/ui/Modal/Modal";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Navbar.module.scss";
-import { AppButton } from "@/shared/ui/AppButton/AppButton";
+import { Button } from "@/shared/ui/Button/Button";
 
 interface NavbarProps {
   className?: string;
@@ -16,12 +16,12 @@ export function Navbar(props: NavbarProps) {
   return (
     <div className={classNames(s.navbar, {}, [className])}>
       <div className={s.logo}>logo</div>
-      <AppButton
+      <Button
         onClick={() => setIsAuthModal(true)}
         variant="clear-inverted"
       >
         isOpen
-      </AppButton>
+      </Button>
       <Modal
         isOpen={isAuthModal}
         onClose={onToggleModal}

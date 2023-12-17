@@ -13,18 +13,18 @@ export default meta;
 type Story = StoryObj<typeof AppLink>;
 
 export const LightClear: Story = {
-  render: () => <AppLink to="/">Link</AppLink>,
+  render: () => <AppLink to="/">AppLink</AppLink>,
 };
 
 export const DarkClear: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
-  render: () => <AppLink to="/">Link</AppLink>,
+  render: () => <AppLink to="/">AppLink</AppLink>,
 };
 
 export const LightOutline: Story = {
   render: () => (
     <AppLink variant="outline" to="/">
-      Link
+      AppLink
     </AppLink>
   ),
 };
@@ -33,14 +33,14 @@ export const DarkOutline: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
   render: () => (
     <AppLink variant="outline" to="/">
-      Link
+      AppLink
     </AppLink>
   ),
 };
 export const LightFilled: Story = {
   render: () => (
     <AppLink variant="filled" to="/">
-      Link
+      AppLink
     </AppLink>
   ),
 };
@@ -49,7 +49,7 @@ export const DarkFilled: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
   render: () => (
     <AppLink variant="filled" to="/">
-      Link
+      AppLink
     </AppLink>
   ),
 };

@@ -15,7 +15,7 @@ import {
 
 import s from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
-import { AppButton } from "../AppButton/AppButton";
+import { Button } from "../Button/Button";
 
 interface ModalProps {
   children: ReactNode;
@@ -72,12 +72,12 @@ export const Modal = memo((props: ModalProps) => {
             onClick={onContetntClick}
           >
             {children}
-            <AppButton
+            <Button
               variant="filled-inverted"
               onClick={closeHandler}
             >
               x
-            </AppButton>
+            </Button>
           </div>
         </div>
       </div>

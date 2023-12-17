@@ -2,7 +2,7 @@ import { SIDEBAR_COLLAPSED_KEY } from "@/shared/const/localstorage";
 import s from "./Sidebar.module.scss";
 import { ThemeSwitcher } from "@/features/ThemeSwitcher";
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { AppButton } from "@/shared/ui/AppButton/AppButton";
+import { Button } from "@/shared/ui/Button/Button";
 
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -62,14 +62,14 @@ export function Sidebar(props: SidebarProps) {
           </AppLink>
         </div>
       </div>
-      <AppButton
+      <Button
         data-testid="sidebar-toggle"
         variant="outline-inverted"
         onClick={changeCollapse}
         className={s.btnCollapsed}
       >
         {collapsed ? ">" : "<"}
-      </AppButton>
+      </Button>
       <div className={s.switchers}>
         <ThemeSwitcher />
         <LanguageSwitcher collapsed={collapsed} />

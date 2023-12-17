@@ -2,8 +2,7 @@ import { ReactNode, memo } from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./AppLink.module.scss";
-import { LinkProps } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, LinkProps } from "react-router-dom";
 type AppLinkVariant = "clear" | "outline" | "filled";
 interface AppLinkProps extends LinkProps {
   children: ReactNode;
@@ -21,7 +20,7 @@ export const AppLink = memo((props: AppLinkProps) => {
   return (
     <Link
       {...otherProps}
-      className={classNames(s.appLink, {}, [
+      className={classNames(s.appAppLink, {}, [
         s[variant],
         className,
       ])}
