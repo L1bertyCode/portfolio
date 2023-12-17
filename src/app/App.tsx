@@ -15,7 +15,7 @@ export function App() {
 
   const loading = <PageLoader />;
   return (
-    <div className={`app ${theme}`}>
+    <div className={`app`}>
       <Navbar />
 
       <div className="content">

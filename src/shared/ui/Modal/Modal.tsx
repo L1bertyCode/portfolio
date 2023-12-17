@@ -16,6 +16,7 @@ import {
 import s from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
 import { Button } from "../Button/Button";
+import { useTheme } from "@/shared/lib/hooks/useTheme";
 
 interface ModalProps {
   children: ReactNode;
