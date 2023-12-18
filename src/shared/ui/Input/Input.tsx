@@ -2,6 +2,8 @@ import {
   ChangeEvent,
   InputHTMLAttributes,
   memo,
+  useEffect,
+  useRef,
 } from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
@@ -18,6 +20,7 @@ interface InputProps extends HTMLInputProps {
   id?: string;
   value?: string;
   onChange?: (value: string) => void;
+  autoFocus?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -29,6 +32,7 @@ export const Input = memo((props: InputProps) => {
     id,
     value,
     onChange,
+    autoFocus = false,
     ...otherProps
   } = props;
   const onChangeHandler = (
@@ -36,18 +40,34 @@ export const Input = memo((props: InputProps) => {
   ) => {
     onChange?.(e.target.value);
   };
+  const ref = useRef<HTMLInputElement>();
+  useEffect(() => {
+    if (autoFocus && ref?.current) {
+      ref?.current?.focus();
+    }
+  }, []);
   return (
-    <>
-      {label ? <label htmlFor={id}>{label}</label> : null}
+    <div
+      className={classNames(s.inputWraspper, {}, [
+        className,
+      ])}
+    >
+      {label ? (
+        <label className={s.label} htmlFor={id}>
+          {label}
+        </label>
+      ) : null}
       <input
         {...otherProps}
+        ref={ref}
         value={value}
         onChange={onChangeHandler}
         placeholder={placeholder}
         type={type}
         id={id}
-        className={classNames(s.input, {}, [className])}
+        autoFocus={autoFocus}
+        className={s.input}
       />
-    </>
+    </div>
   );
 });

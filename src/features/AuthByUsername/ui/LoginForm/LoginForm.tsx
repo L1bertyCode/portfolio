@@ -17,9 +17,16 @@ export const LoginForm = memo((props: LoginFormProps) => {
     <div
       className={classNames(s.loginForm, {}, [className])}
     >
-      <Input className={s.input} />
-      <Input className={s.input} />
-      <Button className={s.loginBtn} variant="clear-inverted">
+      <Input
+        autoFocus={true}
+        label={t("Username")}
+        className={s.input}
+      />
+      <Input label={t("Password")} className={s.input} />
+      <Button
+        className={s.loginBtn}
+        variant="clear-inverted"
+      >
         {t("Login")}
       </Button>
     </div>

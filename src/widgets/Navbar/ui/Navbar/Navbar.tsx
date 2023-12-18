@@ -30,8 +30,8 @@ export function Navbar(props: NavbarProps) {
         {t("Login")}
       </Button>
       <LoginModal
-        // isOpen={isAuthModal}
-        isOpen={true}
+        isOpen={isAuthModal}
+        // isOpen={true}
         onClose={onCloseModal}
         className={"modal"}
       />

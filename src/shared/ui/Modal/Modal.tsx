@@ -23,12 +23,15 @@ interface ModalProps {
   className?: string;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 const ANIMATION_DELAY = 300;
 export const Modal = memo((props: ModalProps) => {
-  const { className, children, isOpen, onClose } = props;
+  const { className, children, isOpen, onClose, lazy } =
+    props;
   const { t } = useTranslation();
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout>>();
   const onContetntClick = (e: MouseEvent) => {
     e.stopPropagation();
@@ -57,11 +60,18 @@ export const Modal = memo((props: ModalProps) => {
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [isOpen, onKeyDown]);
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
   const mods: Mods = {
     [s.opened]: isOpen,
     [s.isClosing]: isClosing,
   };
-
+  if (lazy && !isMounted) {
+    return null;
+  }
   return (
     <Portal>
       <div
