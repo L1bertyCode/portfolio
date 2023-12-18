@@ -74,7 +74,8 @@ export const Modal = memo((props: ModalProps) => {
           >
             {children}
             <Button
-              variant="filled-inverted"
+              className={s.closeBtn}
+              variant="clear"
               onClick={closeHandler}
             >
               x

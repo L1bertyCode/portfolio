@@ -24,6 +24,8 @@
   transition: var(--transition-delay) transform;
   transform: scale(0.5);
   max-width: 60%;
+
+  position: relative;
 }
 
 .opened {
@@ -40,4 +42,9 @@
   .content {
     transform: scale(0.2);
   }
+}
+.closeBtn {
+  position: absolute;
+  top: -16px;
+  right: -12px;
 }
