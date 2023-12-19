@@ -76,5 +76,6 @@
   "{{count}} просмотров_zero": "{{count}} views",
   "{{count}} просмотров_one": "{{count}} view",
   "{{count}} просмотров_few": "{{count}} views",
-  "{{count}} просмотров_other": "{{count}} views"
+  "{{count}} просмотров_other": "{{count}} views",
+  "Password": "Password"
 }

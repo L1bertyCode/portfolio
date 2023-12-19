@@ -18,10 +18,7 @@ export const Dark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
   render: () => <PageLoader />,
 };
-export const Orange: Story = {
-  decorators: [ThemeDecorator(Theme.ORANGE)],
-  render: () => <PageLoader />,
-};
+
 export const Blue: Story = {
   decorators: [ThemeDecorator(Theme.BLUE)],
   render: () => <PageLoader />,

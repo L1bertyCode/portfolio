@@ -21,10 +21,7 @@ export const Dark: Story = {
   render: () => <Input label={"Username"} />,
 };
 
-export const Orange: Story = {
-  decorators: [ThemeDecorator(Theme.ORANGE)],
-  render: () => <Input label={"Username"} />,
-};
+
 export const Blue: Story = {
   decorators: [ThemeDecorator(Theme.BLUE)],
   render: () => <Input label={"Username"} />,

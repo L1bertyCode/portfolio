@@ -7,8 +7,6 @@
   "An unexpected error occurred": "Произошла непредвиденная ошибка",
   "ShortLangauge": "Ру",
   "Login": "Войти",
-  "Type username": "Введите имя пользователя",
-  "Type password": "Введите пароль",
   "Authorization form": "Форма авторизации",
   "You entered an incorrect username or password": "Вы ввели неверный логин или пароль",
   "Logout": "Выйти",
@@ -24,7 +22,7 @@
   "Age": "Возраст",
   "City": "Город",
   "Avatar": "Аватар",
-  "Username": "Имя пользователя",
+  "Username": "Имя",
   "Specify the currency": "Укажите валюту",
   "Choose the country": "Выберите страну",
   "Server error on save": "Серверная ошибка при сохранении",
@@ -75,5 +73,6 @@
   "{{count}} просмотров_zero": "{{count}} просмотров",
   "{{count}} просмотров_one": "{{count}} просмотр",
   "{{count}} просмотров_few": "{{count}} просмотра",
-  "{{count}} просмотров_many": "{{count}} просмотров"
+  "{{count}} просмотров_many": "{{count}} просмотров",
+  "Password": "Пароль"
 }

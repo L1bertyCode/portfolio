@@ -11,12 +11,6 @@ function MainPage() {
     <div className={s.mainPage}>
       {t("Main")}
       {/* <Counter /> */}
-      <Input
-        id={"text"}
-        label={t("Type text")}
-        value={value}
-        onChange={onChange}
-      />
     </div>
   );
 }

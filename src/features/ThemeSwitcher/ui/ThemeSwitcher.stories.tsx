@@ -25,10 +25,7 @@ export const Dark: Story = {
   render: () => <ThemeSwitcher />,
 };
 
-export const Orange: Story = {
-  decorators: [ThemeDecorator(Theme.ORANGE)],
-  render: () => <ThemeSwitcher />,
-};
+
 export const Blue: Story = {
   decorators: [ThemeDecorator(Theme.BLUE)],
   render: () => <ThemeSwitcher />,

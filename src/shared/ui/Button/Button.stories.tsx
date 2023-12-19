@@ -12,13 +12,19 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const InvertedClear: Story = {
+export const Clear: Story = {
   render: () => <Button variant="clear">Text</Button>,
 };
-export const InvertedOuline: Story = {
+export const Ouline: Story = {
   render: () => <Button variant="outline">Text</Button>,
 };
-export const InvertedOulineOrange: Story = {
-  decorators: [ThemeDecorator(Theme.ORANGE)],
-  render: () => <Button variant="outline">Text</Button>,
+export const Filled: Story = {
+  render: () => <Button variant="filled">Text</Button>,
+};
+export const Desabled: Story = {
+  render: () => (
+    <Button variant="filled" disabled={true}>
+      Text
+    </Button>
+  ),
 };

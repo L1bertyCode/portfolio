@@ -6,7 +6,7 @@
   padding: 0;
   margin: 0;
 
-  &:hover {
+  &:not([disabled]):hover {
     opacity: var(--opacity70);
   }
 }
@@ -34,10 +34,17 @@
 }
 
 .filled {
-  background-color: var(--inverted-text-color);
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-text-color);
+  padding: 10px 15px;
 }
 
 .filled-inverted {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--inverted-text-color);
+  padding: 10px 15px;
+}
+
+.disabled {
+  opacity: var(--opacity50);
+  cursor: auto;
 }

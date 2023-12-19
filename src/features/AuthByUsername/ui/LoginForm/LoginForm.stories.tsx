@@ -25,10 +25,7 @@ export const Dark: Story = {
   render: () => <LoginForm />,
 };
 
-export const Orange: Story = {
-  decorators: [ThemeDecorator(Theme.ORANGE)],
-  render: () => <LoginForm />,
-};
+
 export const Blue: Story = {
   decorators: [ThemeDecorator(Theme.BLUE)],
   render: () => <LoginForm />,
