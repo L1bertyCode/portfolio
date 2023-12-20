@@ -1,0 +1,21 @@
+// .textWrapper {
+// }
+.title {
+  font: var(--font-l);
+}
+
+.text {
+  font: var(--font-m);
+}
+
+.normal {
+  color: var(--text-color);
+}
+
+.inverted {
+  color: var(--inverted-text-color);
+}
+
+.error {
+  color: var(--red-dark);
+}

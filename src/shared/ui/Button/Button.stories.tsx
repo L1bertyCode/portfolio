@@ -21,6 +21,31 @@ export const Ouline: Story = {
 export const Filled: Story = {
   render: () => <Button variant="filled">Text</Button>,
 };
+
+export const ClearDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+  render: () => <Button variant="clear">Text</Button>,
+};
+export const OulineDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+  render: () => <Button variant="outline">Text</Button>,
+};
+export const FilledDark: Story = {
+  decorators: [ThemeDecorator(Theme.DARK)],
+  render: () => <Button variant="filled">Text</Button>,
+};
+export const ClearBlue: Story = {
+  decorators: [ThemeDecorator(Theme.BLUE)],
+  render: () => <Button variant="clear">Text</Button>,
+};
+export const OulineBlue: Story = {
+  decorators: [ThemeDecorator(Theme.BLUE)],
+  render: () => <Button variant="outline">Text</Button>,
+};
+export const FilledBlue: Story = {
+  decorators: [ThemeDecorator(Theme.BLUE)],
+  render: () => <Button variant="filled">Text</Button>,
+};
 export const Desabled: Story = {
   render: () => (
     <Button variant="filled" disabled={true}>
