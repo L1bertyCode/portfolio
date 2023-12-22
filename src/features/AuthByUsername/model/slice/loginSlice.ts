@@ -21,11 +21,13 @@ export const loginSlice = createSlice({
     setPassword: (state, action: PayloadAction<string>) => {
       state.password = action.payload;
     },
+  
   },
+
   extraReducers: (builder) => {
     builder.addCase(
       loginByUsername.pending,
-      (state, action) => {
+      (state) => {
         state.error = undefined;
         state.isLoading = true;
       }
