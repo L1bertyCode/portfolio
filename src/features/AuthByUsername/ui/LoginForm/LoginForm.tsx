@@ -43,7 +43,14 @@ export const LoginForm = memo((props: LoginFormProps) => {
         text={t("Authorization form")}
         colorType="inverted"
       />
-      {error && <Text text={error} colorType="error" />}
+      {error && (
+        <Text
+          text={t(
+            "You entered an incorrect username or password"
+          )}
+          colorType="error"
+        />
+      )}
       <Input
         autoFocus={true}
         label={t("Username")}

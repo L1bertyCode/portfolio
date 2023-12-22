@@ -1,3 +1,5 @@
+export { TranslationDecorator } from "./TranslationDecorator/TranslationDecorator";
+
 export { StoreDecorator } from "./StoreDecorator/StoreDecorator";
 
 export { RouteDecorator } from "./RouteDecorator/RouteDecorator";

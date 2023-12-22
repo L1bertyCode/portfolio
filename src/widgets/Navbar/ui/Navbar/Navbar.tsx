@@ -47,7 +47,6 @@ export function Navbar(props: NavbarProps) {
       )}
       <LoginModal
         isOpen={isAuthModal}
-        // isOpen={true}
         onClose={onCloseModal}
         className={"modal"}
       />

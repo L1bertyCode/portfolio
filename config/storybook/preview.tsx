@@ -3,7 +3,7 @@ import {
   RouteDecorator,
   StyleDecorator,
   ThemeDecorator,
-} from "../../src/shared/config/StorybookDecorators/";
+} from "../../src/shared/config/StorybookDecorators";
 import { Theme } from "../../src/app/providers/ThemeProvider/ui/ThemeProvider";
 
 const preview: Preview = {

@@ -31,10 +31,6 @@ export const loginByUsername = createAsyncThunk<
     return response.data;
   } catch (e) {
     console.log(e);
-    return thunkAPI.rejectWithValue(
-      i18n.t(
-        "You entered an incorrect username or password"
-      )
-    );
+    return thunkAPI.rejectWithValue(i18n.t("Error"));
   }
 });

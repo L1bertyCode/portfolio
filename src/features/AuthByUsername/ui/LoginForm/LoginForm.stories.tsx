@@ -1,8 +1,4 @@
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
 import { LoginForm } from "./LoginForm";
 import {
@@ -38,5 +34,27 @@ export const Dark: Story = {
 
 export const Blue: Story = {
   decorators: [ThemeDecorator(Theme.BLUE)],
+  render: () => <LoginForm />,
+};
+export const withError: Story = {
+  decorators: [
+    StoreDecorator({
+      login: {
+        username: "username",
+        password: "123",
+        error: "Error",
+      },
+    }),
+  ],
+  render: () => <LoginForm />,
+};
+export const Loading: Story = {
+  decorators: [
+    StoreDecorator({
+      login: {
+        isLoading: true,
+      },
+    }),
+  ],
   render: () => <LoginForm />,
 };
