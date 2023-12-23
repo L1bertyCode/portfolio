@@ -30,5 +30,5 @@ export interface ReducerManager {
 }
 export interface ReduxStoreWithManager
   extends EnhancedStore<StateSchema> {
-  reducerManaager: ReducerManager;
+  reducerManager: ReducerManager;
 }
