@@ -1,10 +1,11 @@
-import { memo } from "react";
+import { Suspense, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./LoginModal.module.scss";
 import { Modal } from "@/shared/ui/Modal/Modal";
-import { LoginForm } from "../LoginForm/LoginForm";
+import { LoginFormAsync } from "../LoginForm/LoginForm.async";
+import { Loader } from "@/shared/ui/Loader/Loader";
 
 interface LoginModalProps {
   className?: string;
@@ -22,7 +23,9 @@ export const LoginModal = memo((props: LoginModalProps) => {
       className={classNames(s.loginModal, {}, [className])}
       lazy
     >
-      <LoginForm />
+      <Suspense fallback={<Loader colorType="inverted" />}>
+        <LoginFormAsync />
+      </Suspense>
     </Modal>
   );
 });
