@@ -24,7 +24,7 @@ export const LoginModal = memo((props: LoginModalProps) => {
       lazy
     >
       <Suspense fallback={<Loader colorType="inverted" />}>
-        <LoginFormAsync />
+        <LoginFormAsync onSuccess={onClose} />
       </Suspense>
     </Modal>
   );

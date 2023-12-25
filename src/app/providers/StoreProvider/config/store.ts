@@ -30,4 +30,7 @@ export function createReduxStore(
 
 // export type RootState = ReturnType<typeof store.getState>;
 
-// export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = ReturnType<
+  typeof createReduxStore
+>["dispatch"];
+

@@ -27,5 +27,14 @@
   "users": [
     { "id": "1", "username": "admin", "password": "123" }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "name": "Name",
+    "lastname": "Lastname",
+    "age": 18,
+    "currency": "USD",
+    "country": "USA",
+    "city": "Boston",
+    "username": "admin",
+    "avatar": ""
+  }
 }
