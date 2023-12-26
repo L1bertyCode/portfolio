@@ -5,12 +5,11 @@ import { buildResolver } from "./buildResolvers";
 import { buildLoaders } from "./buildLoaders";
 import { buildDevServer } from "./buildDevServer";
 
-export function buildWebpackConfig({
-  mode,
-  isDev,
-  buildPaths,
-  port,
-}: BuildOptions): Configuration {
+export function buildWebpackConfig(
+  buildOptions: BuildOptions
+): Configuration {
+  const { mode, isDev, buildPaths, port, apiUrl } =
+    buildOptions;
   return {
     mode: mode,
     entry: buildPaths.entry,
@@ -22,12 +21,7 @@ export function buildWebpackConfig({
       path: buildPaths.build,
       clean: true,
     },
-    plugins: buildPlugins({
-      mode,
-      isDev,
-      buildPaths,
-      port,
-    }),
+    plugins: buildPlugins(buildOptions),
     resolve: buildResolver(buildPaths),
     module: {
       rules: buildLoaders(isDev),

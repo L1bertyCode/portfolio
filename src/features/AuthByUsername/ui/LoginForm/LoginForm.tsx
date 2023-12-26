@@ -22,6 +22,7 @@ import {
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
+import { useNavigate } from "react-router-dom";
 
 export interface LoginFormProps {
   className?: string;
@@ -35,6 +36,7 @@ const LoginForm = memo((props: LoginFormProps) => {
   const { className, onSuccess } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   // const store = useStore() as ReduxStoreWithManager;
   // useEffect(() => {
   //   store.reducerManager.add("loginForm", loginReducer);
@@ -66,6 +68,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     );
     if (result.meta.requestStatus === "fulfilled") {
       onSuccess();
+      navigate("/profile");
     }
   }, [dispatch, username, password]);
   return (

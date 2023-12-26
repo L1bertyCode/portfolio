@@ -8,6 +8,7 @@ import {
   ReducersMapObject,
   UnknownAction,
 } from "@reduxjs/toolkit";
+import { AxiosInstance } from "axios";
 
 export interface StateSchema {
   counter?: CounterSchema;
@@ -30,4 +31,7 @@ export interface ReducerManager {
 export interface ReduxStoreWithManager
   extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
+}
+export interface ThunkExtraArgs {
+  api:AxiosInstance
 }

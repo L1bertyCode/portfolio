@@ -68,7 +68,7 @@ const config: StorybookConfig = {
     config.plugins?.push(
       new DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify("http://testapi.com"),
+        __API__: JSON.stringify(""),
         __PROJECT__: JSON.stringify("storybook"),
       }),
       new ProvidePlugin({

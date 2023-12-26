@@ -7,6 +7,7 @@ import { counterReducer } from "@/entities/Counter";
 import { userReducer } from "@/entities/User";
 import { loginReducer } from "@/features/AuthByUsername";
 import { createReducerManager } from "./reducerManager";
+import { $api } from "@/shared/api/api";
 export function createReduxStore(
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>
@@ -17,10 +18,18 @@ export function createReduxStore(
     user: userReducer,
   };
   const reducerManager = createReducerManager(rootRedicers);
-  const store = configureStore<StateSchema>({
+  const store = configureStore({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument:{
+            api:$api
+          }
+        }
+      }),
   });
   //@ts-ignore
   store.reducerManager = reducerManager;
@@ -30,4 +39,3 @@ export function createReduxStore(
 export type AppDispatch = ReturnType<
   typeof createReduxStore
 >["dispatch"];
-

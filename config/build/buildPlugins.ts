@@ -12,6 +12,7 @@ export function buildPlugins({
   isDev,
   buildPaths,
   port,
+  apiUrl,
 }: BuildOptions): WebpackPluginInstance[] {
   let plugins = [
     new HtmlWebpackPlugin({
@@ -19,7 +20,10 @@ export function buildPlugins({
       favicon: buildPaths.favicon,
       inject: "body",
     }),
-    new DefinePlugin({ __IS_DEV__: JSON.stringify(isDev) }),
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiUrl),
+    }),
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].css",
       chunkFilename: "css/[name].[contenthash:8].css",
