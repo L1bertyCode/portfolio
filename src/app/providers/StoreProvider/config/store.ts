@@ -26,9 +26,6 @@ export function createReduxStore(
   store.reducerManager = reducerManager;
   return store;
 }
-// export const store = createReduxStore();
-
-// export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = ReturnType<
   typeof createReduxStore

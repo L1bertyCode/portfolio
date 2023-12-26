@@ -3,6 +3,15 @@ import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./ProfilePage.module.scss";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { profileReducer } from "@/entities/Profile";
+
+const reducers: ReducersList = {
+  profile: profileReducer,
+};
 
 interface ProfilePageProps {
   className?: string;
@@ -12,11 +21,18 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const { className } = props;
   const { t } = useTranslation();
   return (
-    <div
-      className={classNames(s.profilePage, {}, [className])}
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount
     >
-      <div>ProfilePage</div>
-    </div>
+      <div
+        className={classNames(s.profilePage, {}, [
+          className,
+        ])}
+      >
+        <div>ProfilePage</div>
+      </div>
+    </DynamicModuleLoader>
   );
 });
 export default ProfilePage;

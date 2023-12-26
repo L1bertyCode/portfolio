@@ -1,3 +1,12 @@
 .sidebarItem {
-  color: inherit;
+  position: relative;
+  padding: 6px 12px;
+}
+
+.text {
+  margin-left: 6px;
+}
+
+.icon {
+  fill: var(--inverted-text-color);
 }

@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import ProfilePage from "./ProfilePage";
-import { ThemeDecorator } from "@/shared/config/StorybookDecorators";
+import { StoreDecorator, ThemeDecorator } from "@/shared/config/StorybookDecorators";
 import { Theme } from "@/app/providers/ThemeProvider/ui/ThemeProvider";
 
 const meta: Meta<typeof ProfilePage> = {
   component: ProfilePage,
   title: "pages/ProfilePage",
+  decorators:[StoreDecorator({})]
 };
 
 export default meta;

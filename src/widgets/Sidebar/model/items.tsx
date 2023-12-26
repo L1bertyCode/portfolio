@@ -5,14 +5,14 @@ import ProfileIcon from "@/shared/assets/icons/profile-20-20.svg";
 export interface SidebarItemInterace {
   path: string;
   text: string;
-  icon: React.FunctionComponent<React.SVGProps<SVGElement>>;
+  Icon: React.FunctionComponent<React.SVGProps<SVGElement>>;
 }
 export const sidebatItemsList: SidebarItemInterace[] = [
-  { path: RoutePath.main, icon: MainIcon, text: "Main" },
-  { path: RoutePath.about, icon: AboutIcon, text: "About" },
+  { path: RoutePath.main, Icon: MainIcon, text: "Main" },
+  { path: RoutePath.about, Icon: AboutIcon, text: "About" },
   {
     path: RoutePath.profile,
-    icon: ProfileIcon,
+    Icon: ProfileIcon,
     text: "Profile",
   },
 ];

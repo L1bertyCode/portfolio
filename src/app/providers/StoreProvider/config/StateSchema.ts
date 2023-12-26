@@ -1,19 +1,18 @@
 import { CounterSchema } from "@/entities/Counter";
+import { ProfileSchema } from "@/entities/Profile";
 import { UserSchema } from "@/entities/User";
 import { LoginSchema } from "@/features/AuthByUsername";
 import {
-  ActionFromReducersMapObject,
   EnhancedStore,
-  PreloadedStateShapeFromReducersMapObject,
   Reducer,
   ReducersMapObject,
-  StateFromReducersMapObject,
   UnknownAction,
 } from "@reduxjs/toolkit";
 
 export interface StateSchema {
   counter?: CounterSchema;
   user: UserSchema;
+  profile: ProfileSchema;
   //Async reducers
   loginForm?: LoginSchema;
 }

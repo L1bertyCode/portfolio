@@ -7,11 +7,9 @@ import { Button } from "@/shared/ui/Button/Button";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "@/features/LanguageSwitcher";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { RoutePath } from "@/shared/config/routes/routesConfig";
 
-import MainIcon from "@/shared/assets/icons/main-20-20.svg";
-import AboutIcon from "@/shared/assets/icons/about-20-20.svg";
+import { sidebatItemsList } from "../../model/items";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 interface SidebarProps {
   className?: string;
@@ -21,7 +19,7 @@ const defaultCollpased =
     ? true
     : false || false;
 export function Sidebar(props: SidebarProps) {
-  const { t, i18n } = useTranslation();
+  const { t} = useTranslation();
   const { className } = props;
   const [collapsed, setCollapsed] = useState(
     defaultCollpased
@@ -45,22 +43,14 @@ export function Sidebar(props: SidebarProps) {
       )}
     >
       <div className={s.links}>
-        <div className={s.link}>
-          <AppLink to={RoutePath.main}>
-            <MainIcon className={s.icon} />
-            {!collapsed ? (
-              <span className={s.text}>{t("Main")}</span>
-            ) : undefined}
-          </AppLink>
-        </div>
-        <div className={s.link}>
-          <AppLink to={RoutePath.about}>
-            <AboutIcon className={s.icon} />
-            {!collapsed ? (
-              <span className={s.text}>{t("About")}</span>
-            ) : undefined}
-          </AppLink>
-        </div>
+        {sidebatItemsList.map((listItem) => (
+          <SidebarItem
+            key={listItem.path}
+            className={s.link}
+            collapsed={collapsed}
+            item={listItem}
+          />
+        ))}
       </div>
       <Button
         data-testid="sidebar-toggle"

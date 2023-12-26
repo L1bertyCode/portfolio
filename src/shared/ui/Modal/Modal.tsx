@@ -26,7 +26,7 @@ interface ModalProps {
   lazy?: boolean;
 }
 const ANIMATION_DELAY = 300;
-export const Modal = memo((props: ModalProps) => {
+export const Modal =(props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } =
     props;
   const { t } = useTranslation();
@@ -95,4 +95,4 @@ export const Modal = memo((props: ModalProps) => {
       </div>
     </Portal>
   );
-});
+};
