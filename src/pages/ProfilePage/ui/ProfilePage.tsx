@@ -8,6 +8,7 @@ import {
   ReducersList,
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {
+  ProfileCard,
   fetchProfileData,
   profileReducer,
 } from "@/entities/Profile";
@@ -38,7 +39,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
           className,
         ])}
       >
-        <div>ProfilePage</div>
+        <ProfileCard />
       </div>
     </DynamicModuleLoader>
   );

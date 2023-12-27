@@ -67,7 +67,7 @@ const LoginForm = memo((props: LoginFormProps) => {
       loginByUsername({ username, password })
     );
     if (result.meta.requestStatus === "fulfilled") {
-      onSuccess();
+      onSuccess?.();
       // navigate("/profile");
     }
   }, [dispatch, username, password]);

@@ -25,10 +25,10 @@ export function createReduxStore(
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         thunk: {
-          extraArgument:{
-            api:$api
-          }
-        }
+          extraArgument: {
+            api: $api,
+          },
+        },
       }),
   });
   //@ts-ignore

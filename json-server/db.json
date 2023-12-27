@@ -28,7 +28,7 @@
     { "id": "1", "username": "admin", "password": "123" }
   ],
   "profile": {
-    "name": "Name",
+    "firstname": "Firstame",
     "lastname": "Lastname",
     "age": 18,
     "currency": "USD",
