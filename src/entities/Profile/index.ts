@@ -1,3 +1,5 @@
+export { fetchProfileData } from "./model/services/fetchProfileData";
+
 export {
   profileActions,
   profileReducer,

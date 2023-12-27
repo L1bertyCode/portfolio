@@ -4,8 +4,7 @@ import { USER_LOCALSTORAGE_KEY } from "../const/localstorage";
 export const $api = axios.create({
   baseURL: __API__,
   headers: {
-    autjorization: localStorage.getItem(
-      USER_LOCALSTORAGE_KEY
-    ),
+    autjorization:
+      localStorage.getItem(USER_LOCALSTORAGE_KEY) || "",
   },
 });

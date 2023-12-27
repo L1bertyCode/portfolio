@@ -23,7 +23,6 @@ export const loginSlice = createSlice({
     },
   
   },
-
   extraReducers: (builder) => {
     builder.addCase(
       loginByUsername.pending,

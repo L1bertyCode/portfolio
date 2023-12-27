@@ -5,7 +5,7 @@ import {
 import { StateSchema } from "./StateSchema";
 import { counterReducer } from "@/entities/Counter";
 import { userReducer } from "@/entities/User";
-import { loginReducer } from "@/features/AuthByUsername";
+
 import { createReducerManager } from "./reducerManager";
 import { $api } from "@/shared/api/api";
 export function createReduxStore(
