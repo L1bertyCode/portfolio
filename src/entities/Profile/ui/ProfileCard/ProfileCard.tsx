@@ -10,44 +10,74 @@ import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/g
 import { Button } from "@/shared/ui/Button/Button";
 import { Text } from "@/shared/ui/Text/Text";
 import { Input } from "@/shared/ui/Input/Input";
+import { Profile } from "../../model/type/profile";
+import { Loader } from "@/shared/ui/Loader/Loader";
 
 interface ProfileCardProps {
   className?: string;
+  data?: Profile;
+  error?: string;
+  isLoading: boolean;
 }
 
 export const ProfileCard = memo(
   (props: ProfileCardProps) => {
-    const { className } = props;
+    const { className, data, error, isLoading } = props;
     const { t } = useTranslation();
-    const data = useSelector(getProfileData);
-    const error = useSelector(getProfileError);
-    const isLoading = useSelector(getProfileIsLoading);
+    if (error) {
+      return (
+        <div
+          className={classNames(s.profileCard, {}, [
+            className,
+            s.error,
+          ])}
+        >
+          <Text
+            align="center"
+            colorType="error"
+            title={t(
+              "An error occurred while loading the page"
+            )}
+            text={t("Refresh the page")}
+          />
+        </div>
+      );
+    }
     return (
       <div
-        className={classNames(s.profileCard, {}, [
-          className,
-        ])}
+        className={classNames(
+          s.profileCard,
+          { [s.loading]: isLoading },
+          [className]
+        )}
       >
-        <div className={s.header}>
-          <Text title={t("Profile")} />
-          <Button className={s.editBtn} variant="outline">
-            {t("Edit")}
-          </Button>
-        </div>
-        <div className={s.data}>
-          <Input
-            value={data?.firstname}
-            placeholder={t("Name")}
-            className={s.input}
-          />
-        </div>
-        <div className={s.data}>
-          <Input
-            className={s.input}
-            value={data?.lastname}
-            placeholder={t("Surname")}
-          />
-        </div>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <div className={s.header}>
+              <Text title={t("Profile")} />
+              <Button
+                className={s.editBtn}
+                variant="outline"
+              >
+                {t("Edit")}
+              </Button>
+            </div>
+            <div className={s.data}>
+              <Input
+                value={data?.firstname}
+                placeholder={t("Name")}
+                className={s.input}
+              />
+              <Input
+                className={s.input}
+                value={data?.lastname}
+                placeholder={t("Surname")}
+              />
+            </div>
+          </>
+        )}
       </div>
     );
   }

@@ -4,11 +4,13 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./Text.module.scss";
 export type TextColorType = "normal" | "inverted" | "error";
+export type TextAlign = "left" | "center" | "right";
 interface TextProps {
   className?: string;
   title?: string;
   text?: string;
   colorType?: string;
+  align?: TextAlign;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -17,6 +19,7 @@ export const Text = memo((props: TextProps) => {
     title,
     text,
     colorType = "normal",
+    align = "left",
   } = props;
   const { t } = useTranslation();
   return (
@@ -24,6 +27,7 @@ export const Text = memo((props: TextProps) => {
       className={classNames(s.textWrapper, {}, [
         className,
         s[colorType],
+        s[align],
       ])}
     >
       {title && <p className={s.title}>{title}</p>}
