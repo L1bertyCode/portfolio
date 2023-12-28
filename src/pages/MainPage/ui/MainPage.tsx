@@ -3,6 +3,7 @@ import s from "./MainPage.module.scss";
 import { Counter } from "@/entities/Counter";
 import { Input } from "@/shared/ui/Input/Input";
 import { useState } from "react";
+import { ProfileCard } from "@/entities/Profile";
 function MainPage() {
   const { t } = useTranslation();
   const [value, setValue] = useState("");
@@ -10,7 +11,6 @@ function MainPage() {
   return (
     <div className={s.mainPage}>
       {t("Main")}
-      {/* <Counter /> */}
     </div>
   );
 }

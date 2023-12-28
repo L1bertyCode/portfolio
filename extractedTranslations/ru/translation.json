@@ -12,14 +12,17 @@
   "Login": "Login",
   "Logout": "Logout",
   "Main": "",
+  "Name": "Name",
   "Page not found": "Page not found",
   "Passord": "Passord",
   "Password": "Password",
   "Profile": "Profile",
   "Refresh the page": "Refresh the page",
   "ShortLangauge": "",
+  "Surname": "Surname",
   "Type text": "Type text",
   "Username": "Username",
   "You entered an incorrect username or password": "You entered an incorrect username or password",
+  "name": "name",
   "username": "username"
 }

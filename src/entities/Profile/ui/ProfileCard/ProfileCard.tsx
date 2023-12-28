@@ -9,6 +9,7 @@ import { getProfileError } from "../../model/selectors/getProfileError/getProfil
 import { getProfileIsLoading } from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { Button } from "@/shared/ui/Button/Button";
 import { Text } from "@/shared/ui/Text/Text";
+import { Input } from "@/shared/ui/Input/Input";
 
 interface ProfileCardProps {
   className?: string;
@@ -27,8 +28,26 @@ export const ProfileCard = memo(
           className,
         ])}
       >
-     <Text title={t("Profile")}/>
-     <Button variant="outline">{t('Edit')}</Button>
+        <div className={s.header}>
+          <Text title={t("Profile")} />
+          <Button className={s.editBtn} variant="outline">
+            {t("Edit")}
+          </Button>
+        </div>
+        <div className={s.data}>
+          <Input
+            value={data?.firstname}
+            placeholder={t("Name")}
+            className={s.input}
+          />
+        </div>
+        <div className={s.data}>
+          <Input
+            className={s.input}
+            value={data?.lastname}
+            placeholder={t("Surname")}
+          />
+        </div>
       </div>
     );
   }

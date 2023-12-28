@@ -1,5 +1,6 @@
 import {
   MouseEvent,
+  MutableRefObject,
   ReactNode,
   memo,
   useCallback,
@@ -26,13 +27,15 @@ interface ModalProps {
   lazy?: boolean;
 }
 const ANIMATION_DELAY = 300;
-export const Modal =(props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } =
     props;
   const { t } = useTranslation();
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timeRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeRef = useRef() as MutableRefObject<
+    ReturnType<typeof setTimeout>
+  >;
   const onContetntClick = (e: MouseEvent) => {
     e.stopPropagation();
   };

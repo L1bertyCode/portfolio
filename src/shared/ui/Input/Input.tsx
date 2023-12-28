@@ -1,6 +1,7 @@
 import {
   ChangeEvent,
   InputHTMLAttributes,
+  MutableRefObject,
   memo,
   useEffect,
   useRef,
@@ -40,7 +41,8 @@ export const Input = memo((props: InputProps) => {
   ) => {
     onChange?.(e.target.value);
   };
-  const ref = useRef<HTMLInputElement>();
+  const ref =
+    useRef() as MutableRefObject<HTMLInputElement>;
   useEffect(() => {
     if (autoFocus && ref?.current) {
       ref?.current?.focus();

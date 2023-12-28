@@ -11,7 +11,7 @@ import {
 import { AxiosInstance } from "axios";
 
 export interface StateSchema {
-  counter?: CounterSchema;
+  counter: CounterSchema;
   user: UserSchema;
   profile: ProfileSchema;
   //Async reducers
