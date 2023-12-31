@@ -11,7 +11,7 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Input.module.scss";
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange"
+  "value" | "onChange" | "readOnly"
 >;
 interface InputProps extends HTMLInputProps {
   className?: string;
@@ -22,6 +22,7 @@ interface InputProps extends HTMLInputProps {
   value?: string;
   onChange?: (value: string) => void;
   autoFocus?: boolean;
+  readOnly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -34,6 +35,7 @@ export const Input = memo((props: InputProps) => {
     value,
     onChange,
     autoFocus = false,
+    readOnly,
     ...otherProps
   } = props;
   const onChangeHandler = (
@@ -68,7 +70,12 @@ export const Input = memo((props: InputProps) => {
         type={type}
         id={id}
         autoFocus={autoFocus}
-        className={s.input}
+        readOnly={readOnly}
+        className={classNames(
+          s.input,
+          { [s.readOnly]: readOnly },
+          []
+        )}
       />
     </div>
   );

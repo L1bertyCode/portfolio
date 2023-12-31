@@ -6,15 +6,36 @@ import { Profile, ProfileSchema } from "../type/profile";
 import { fetchProfileData } from "../services/fetchProfileData";
 
 const initialState: ProfileSchema = {
-  readonly: true,
   isLoading: false,
   error: undefined,
   data: undefined,
+  userChangeData:undefined,
+  readOnly: true,
 };
 export const profileSlice = createSlice({
   name: "profile",
   initialState,
-  reducers: {},
+  reducers: {
+    setReadOnly: (
+      state,
+      action: PayloadAction<boolean>
+    ) => {
+      state.readOnly = action.payload;
+    },
+    cancelUpdateProfile: (state) => {
+      state.readOnly = false;
+      state.userChangeData = state.data;
+    },
+    updateProfile: (
+      state,
+      action: PayloadAction<Profile>
+    ) => {
+      state.userChangeData = {
+        ...state.data,
+        ...action.payload,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchProfileData.pending, (state) => {
       state.error = undefined;
@@ -32,6 +53,7 @@ export const profileSlice = createSlice({
       (state, action: PayloadAction<Profile>) => {
         state.isLoading = false;
         state.data = action.payload;
+        state.userChangeData = action.payload;
       }
     );
   },

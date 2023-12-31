@@ -18,6 +18,7 @@ import {
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
+import { getProfileUserChangeData } from "@/entities/Profile/model/selectors/getProfileUserChangeData/getProfileUserChangeData";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -33,6 +34,9 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const dispatch = useAppDispatch();
 
   const data = useSelector(getProfileData);
+  const userChangeData = useSelector(
+    getProfileUserChangeData
+  );
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   useEffect(() => {
@@ -51,6 +55,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         <ProfilePageHeader />
         <ProfileCard
           data={data}
+          userChangeData={userChangeData}
           error={error}
           isLoading={isLoading}
         />

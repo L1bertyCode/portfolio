@@ -6,6 +6,7 @@
   "Au": "Au",
   "Aut": "Aut",
   "Authorization form": "Authorization form",
+  "Cancel": "Cancel",
   "Edit": "Edit",
   "Error": "Error",
   "Langauge": "",
@@ -20,10 +21,12 @@
   "Profile": "Profile",
   "Refresh the page": "Refresh the page",
   "ShortLangauge": "",
+  "Surame": "Surame",
   "Surname": "Surname",
   "Type text": "Type text",
   "Username": "Username",
   "You entered an incorrect username or password": "You entered an incorrect username or password",
+  "ame": "ame",
   "name": "name",
   "username": "username"
 }
