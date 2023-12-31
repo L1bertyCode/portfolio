@@ -17,6 +17,7 @@ import {
 } from "@/entities/Profile";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
+import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -47,6 +48,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
           className,
         ])}
       >
+        <ProfilePageHeader />
         <ProfileCard
           data={data}
           error={error}
