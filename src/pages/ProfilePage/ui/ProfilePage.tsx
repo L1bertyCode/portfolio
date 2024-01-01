@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo, useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
@@ -13,6 +13,7 @@ import {
   getProfileData,
   getProfileError,
   getProfileIsLoading,
+  profileActions,
   profileReducer,
 } from "@/entities/Profile";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
@@ -42,6 +43,42 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
+  const onChangeFirstname = useCallback(
+    (value?: string) =>
+      dispatch(
+        profileActions.updateProfile({
+          firstname: value || "",
+        })
+      ),
+    [dispatch]
+  );
+  const onChangeLastname = useCallback(
+    (value?: string) =>
+      dispatch(
+        profileActions.updateProfile({
+          lastname: value || "",
+        })
+      ),
+    [dispatch]
+  );
+  const onChangeCity = useCallback(
+    (value?: string) =>
+      dispatch(
+        profileActions.updateProfile({
+          city: value || "",
+        })
+      ),
+    [dispatch]
+  );
+  const onChangeAge = useCallback(
+    (value?: string) =>
+      dispatch(
+        profileActions.updateProfile({
+          age: Number(value || 0),
+        })
+      ),
+    [dispatch]
+  );
   return (
     <DynamicModuleLoader
       reducers={reducers}
@@ -58,7 +95,11 @@ const ProfilePage = memo((props: ProfilePageProps) => {
           userChangeData={userChangeData}
           error={error}
           isLoading={isLoading}
-        />
+          onChangeFirstname={onChangeFirstname}
+          onChangeLastname={onChangeLastname}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          />
       </div>
     </DynamicModuleLoader>
   );

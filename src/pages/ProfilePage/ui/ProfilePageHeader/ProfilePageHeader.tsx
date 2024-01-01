@@ -9,6 +9,7 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import {
   getProfileReadOnly,
   profileActions,
+  updateProfileData,
 } from "@/entities/Profile";
 import { useSelector } from "react-redux";
 
@@ -23,7 +24,10 @@ export const ProfilePageHeader = memo(
     const dispatch = useAppDispatch();
     const readOnly = useSelector(getProfileReadOnly);
     const onCancelUpdateProfile = () => {
-      dispatch(onCancelUpdateProfile);
+      dispatch(profileActions.cancelUpdateProfile());
+    };
+    const onSaveUpdateProfile = () => {
+      dispatch(updateProfileData());
     };
     return (
       <div
@@ -43,15 +47,22 @@ export const ProfilePageHeader = memo(
             {t("Edit")}
           </Button>
         ) : (
-          <Button
-            className={s.editBtn}
-            variant="outline"
-            onClick={() =>
-              dispatch(profileActions.setReadOnly(true))
-            }
-          >
-            {t("Cancel")}
-          </Button>
+          <div className={s.editBtns}>
+            <Button
+              className={s.saveBtn}
+              variant="outline-save"
+              onClick={onSaveUpdateProfile}
+            >
+              {t("Save")}
+            </Button>
+            <Button
+              className={s.editBtn}
+              variant="outline-red"
+              onClick={onCancelUpdateProfile}
+            >
+              {t("Cancel")}
+            </Button>
+          </div>
         )}
       </div>
     );

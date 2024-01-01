@@ -19,6 +19,10 @@ interface ProfileCardProps {
   userChangeData?: Profile;
   error?: string;
   isLoading: boolean;
+  onChangeFirstname: (value?: string) => void;
+  onChangeLastname: (value?: string) => void;
+  onChangeAge: (value?: string) => void;
+  onChangeCity: (value?: string) => void;
 }
 
 export const ProfileCard = memo(
@@ -29,28 +33,15 @@ export const ProfileCard = memo(
       userChangeData,
       error,
       isLoading,
+      onChangeFirstname,
+      onChangeLastname,
+      onChangeAge,
+      onChangeCity,
     } = props;
     const dispatch = useAppDispatch();
     const readOnly = useSelector(getProfileReadOnly);
     const { t } = useTranslation();
-    const onChangeFirstname = useCallback(
-      (value: string) =>
-        dispatch(
-          profileActions.updateProfile({
-            firstname: value || "",
-          })
-        ),
-      [dispatch]
-    );
-    const onChangeLastname = useCallback(
-      (value: string) =>
-        dispatch(
-          profileActions.updateProfile({
-            lastname: value || "",
-          })
-        ),
-      [dispatch]
-    );
+
     if (error) {
       return (
         <div
@@ -98,6 +89,23 @@ export const ProfileCard = memo(
                 label={t("Surname")}
                 placeholder={t("Surname")}
                 onChange={onChangeLastname}
+              />
+              <Input
+                readOnly={readOnly}
+                className={s.input}
+                type={"number"}
+                value={userChangeData?.age}
+                label={t("Age")}
+                placeholder={t("Age")}
+                onChange={onChangeAge}
+              />
+              <Input
+                readOnly={readOnly}
+                className={s.input}
+                value={userChangeData?.city}
+                label={t("City")}
+                placeholder={t("City")}
+                onChange={onChangeCity}
               />
             </div>
           </>

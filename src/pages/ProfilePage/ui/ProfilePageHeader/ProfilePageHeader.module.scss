@@ -1,9 +1,14 @@
 .profilePageHeader {
   display: flex;
+  justify-content: space-between;
   max-width: 90%;
   margin: 0 auto;
 }
 
-.editBtn {
+.editBtns {
   margin-left: auto;
+}
+
+.saveBtn {
+  margin-right: 10px;
 }

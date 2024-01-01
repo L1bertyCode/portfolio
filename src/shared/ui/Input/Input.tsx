@@ -1,5 +1,6 @@
 import {
   ChangeEvent,
+  HTMLInputTypeAttribute,
   InputHTMLAttributes,
   MutableRefObject,
   memo,
@@ -11,15 +12,15 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 import s from "./Input.module.scss";
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange" | "readOnly"
+  "value" | "onChange" | "readOnly" | "type"
 >;
 interface InputProps extends HTMLInputProps {
   className?: string;
-  type?: string;
+  type?: HTMLInputTypeAttribute;
   placeholder?: string;
   label?: string;
   id?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   autoFocus?: boolean;
   readOnly?: boolean;
@@ -28,7 +29,7 @@ interface InputProps extends HTMLInputProps {
 export const Input = memo((props: InputProps) => {
   const {
     className,
-    type = "text",
+    type,
     placeholder = "",
     label,
     id,
@@ -50,6 +51,7 @@ export const Input = memo((props: InputProps) => {
       ref?.current?.focus();
     }
   }, []);
+
   return (
     <div
       className={classNames(s.inputWraspper, {}, [

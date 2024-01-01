@@ -4,12 +4,13 @@ import {
 } from "@reduxjs/toolkit";
 import { Profile, ProfileSchema } from "../type/profile";
 import { fetchProfileData } from "../services/fetchProfileData";
+import { updateProfileData } from "../services/updateProfileData";
 
 const initialState: ProfileSchema = {
   isLoading: false,
   error: undefined,
   data: undefined,
-  userChangeData:undefined,
+  userChangeData: undefined,
   readOnly: true,
 };
 export const profileSlice = createSlice({
@@ -22,19 +23,23 @@ export const profileSlice = createSlice({
     ) => {
       state.readOnly = action.payload;
     },
-    cancelUpdateProfile: (state) => {
-      state.readOnly = false;
-      state.userChangeData = state.data;
-    },
     updateProfile: (
       state,
       action: PayloadAction<Profile>
     ) => {
       state.userChangeData = {
-        ...state.data,
+        ...state.userChangeData,
         ...action.payload,
       };
     },
+    cancelUpdateProfile: (state) => {
+      state.readOnly = true;
+      state.userChangeData = state.data;
+    },
+    // saveUpdateProfile: (state) => {
+    //   state.readOnly = true;
+    //   state.data = state.userChangeData;
+    // },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProfileData.pending, (state) => {
@@ -54,6 +59,26 @@ export const profileSlice = createSlice({
         state.isLoading = false;
         state.data = action.payload;
         state.userChangeData = action.payload;
+      }
+    );
+    builder.addCase(updateProfileData.pending, (state) => {
+      state.error = undefined;
+      state.isLoading = true;
+    });
+    builder.addCase(
+      updateProfileData.rejected,
+      (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      }
+    );
+    builder.addCase(
+      updateProfileData.fulfilled,
+      (state, action: PayloadAction<Profile>) => {
+        state.isLoading = false;
+        state.data = action.payload;
+        state.userChangeData = action.payload;
+        state.readOnly = true;
       }
     );
   },

@@ -1,13 +1,15 @@
-.appButton {
+.button {
   cursor: pointer;
   border: none;
   outline: none;
   background: none;
   padding: 0;
   margin: 0;
+  transition: opacity 0.1s;
 
   &:not([disabled]):hover {
     opacity: var(--opacity70);
+    transition: opacity 0.1s;
   }
 }
 
@@ -19,29 +21,46 @@
   color: var(--inverted-text-color);
 }
 
+.outline,
+.outline-inverted,
+.outline-save,
+.outline-red {
+  padding: 5px 10px;
+  border-radius: var(--b-raduis-s);
+}
+
 .outline {
   color: var(--text-color);
   border: 2px solid var(--text-color);
-  padding: 5px 10px;
-  border-radius: var(--b-raduis-s);
 }
 
 .outline-inverted {
   color: var(--inverted-text-color);
   border: 2px solid var(--inverted-text-color);
-  padding: 5px 10px;
-  border-radius: var(--b-raduis-s);
+}
+
+.outline-red {
+  color: var(--red-light);
+  border: 2px solid var(--red-light);
+}
+
+.outline-save {
+  color: var(--save-color);
+  border: 2px solid var(--save-color);
+}
+
+.filled ,.filled-inverted  {
+  padding: 10px 15px;
+
 }
 
 .filled {
   background-color: var(--inverted-bg-color);
   color: var(--inverted-text-color);
-  padding: 10px 15px;
 }
 
 .filled-inverted {
   background-color: var(--inverted-text-color);
-  padding: 10px 15px;
 }
 
 .disabled {

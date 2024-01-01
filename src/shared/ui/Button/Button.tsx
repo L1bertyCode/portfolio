@@ -8,6 +8,8 @@ import {
 type ButtonVariant =
   | "clear"
   | "clear-inverted"
+  | "outline-save"
+  | "outline-red"
   | "outline-inverted"
   | "outline"
   | "filled"
@@ -33,7 +35,7 @@ export function Button(props: ButtonProps) {
       {...otherProps}
       type="button"
       disabled={disabled}
-      className={classNames(s.appButton, mods, [
+      className={classNames(s.button, mods, [
         s[variant],
         className,
       ])}
