@@ -23,7 +23,7 @@ export const PageError = memo((props: PageErrorProps) => {
         {t("An unexpected error occurred")}
       </p>
       <Button
-        variant="outline-inverted"
+        variant="outline"
         onClick={reloadPage}
       >
         {t("Refresh the page")}

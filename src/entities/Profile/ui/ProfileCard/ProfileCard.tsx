@@ -13,6 +13,7 @@ import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/get
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import img from "@/shared/assets/tests/storybook.jpg";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
+import { Select } from "@/shared/ui/Select/Select";
 
 interface ProfileCardProps {
   className?: string;
@@ -132,6 +133,11 @@ export const ProfileCard = memo(
                 label={t("Username")}
                 placeholder={t("Username")}
                 onChange={onChangeUsername}
+              />
+              <Select
+                label={t("Country")}
+                options={["op1", "op2", "op3"]}
+                readOnly={readOnly}
               />
             </div>
           </>

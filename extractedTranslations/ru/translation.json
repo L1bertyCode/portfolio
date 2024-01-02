@@ -16,6 +16,7 @@
   "C": "C",
   "Cancel": "Cancel",
   "City": "City",
+  "Country": "Country",
   "CurrenCitycy": "CurrenCitycy",
   "Currency": "Currency",
   "Edit": "Edit",
@@ -40,8 +41,12 @@
   "Username": "Username",
   "You entered an incorrect username or password": "You entered an incorrect username or password",
   "ame": "ame",
+  "countr": "countr",
+  "countre": "countre",
+  "country": "country",
   "currency": "currency",
   "name": "name",
   "urrency": "urrency",
-  "username": "username"
+  "username": "username",
+  "сountry": "сountry"
 }
