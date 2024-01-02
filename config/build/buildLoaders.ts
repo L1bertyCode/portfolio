@@ -35,7 +35,7 @@ export function buildLoaders(
     use: ["@svgr/webpack"],
   };
   const fileLoader = {
-    test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+    test: /\.(png|jpeg|jpg|gif|woff|woff2)$/i,
     use: [
       {
         loader: "file-loader",

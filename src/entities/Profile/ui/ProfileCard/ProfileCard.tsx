@@ -11,7 +11,8 @@ import { Loader } from "@/shared/ui/Loader/Loader";
 import { useSelector } from "react-redux";
 import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/getProfileReadOnly";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
-import { profileActions } from "../../model/slice/profileSlice";
+import img from "@/shared/assets/tests/storybook.jpg";
+import { Avatar } from "@/shared/ui/Avatar/Avatar";
 
 interface ProfileCardProps {
   className?: string;
@@ -19,10 +20,12 @@ interface ProfileCardProps {
   userChangeData?: Profile;
   error?: string;
   isLoading: boolean;
-  onChangeFirstname: (value?: string) => void;
-  onChangeLastname: (value?: string) => void;
-  onChangeAge: (value?: string) => void;
-  onChangeCity: (value?: string) => void;
+  onChangeFirstname?: (value?: string) => void;
+  onChangeLastname?: (value?: string) => void;
+  onChangeAge?: (value?: string) => void;
+  onChangeCity?: (value?: string) => void;
+  onChangeAvatar?: (value?: string) => void;
+  onChangeUsername?: (value?: string) => void;
 }
 
 export const ProfileCard = memo(
@@ -37,6 +40,8 @@ export const ProfileCard = memo(
       onChangeLastname,
       onChangeAge,
       onChangeCity,
+      onChangeAvatar,
+      onChangeUsername,
     } = props;
     const dispatch = useAppDispatch();
     const readOnly = useSelector(getProfileReadOnly);
@@ -65,7 +70,7 @@ export const ProfileCard = memo(
       <div
         className={classNames(
           s.profileCard,
-          { [s.loading]: isLoading },
+          { [s.loading]: isLoading, [s.edited]: !readOnly },
           [className]
         )}
       >
@@ -73,6 +78,11 @@ export const ProfileCard = memo(
           <Loader />
         ) : (
           <>
+            {data?.avatar && (
+              <div className={s.avatarWrapper}>
+                <Avatar src={img} />
+              </div>
+            )}
             <div className={s.data}>
               <Input
                 readOnly={readOnly}
@@ -106,6 +116,22 @@ export const ProfileCard = memo(
                 label={t("City")}
                 placeholder={t("City")}
                 onChange={onChangeCity}
+              />
+              <Input
+                readOnly={readOnly}
+                className={s.input}
+                value={userChangeData?.avatar}
+                label={t("Avatar")}
+                placeholder={t("Avatar")}
+                onChange={onChangeAvatar}
+              />
+              <Input
+                readOnly={readOnly}
+                className={s.input}
+                value={userChangeData?.username}
+                label={t("Username")}
+                placeholder={t("Username")}
+                onChange={onChangeUsername}
               />
             </div>
           </>
