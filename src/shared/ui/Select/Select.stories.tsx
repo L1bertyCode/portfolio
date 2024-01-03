@@ -3,7 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Select } from "./Select";
 import { ThemeDecorator } from "@/shared/config/StorybookDecorators";
 import { Theme } from "@/app/providers/ThemeProvider/ui/ThemeProvider";
-import img from "@/shared/assets/tests/storybook.jpg";
+import { Country } from "@/shared/const/common";
+
 const meta: Meta<typeof Select> = {
   component: Select,
   title: "shared/Select",
@@ -16,7 +17,28 @@ export const PrimaryLight: Story = {
   render: () => (
     <Select
       label={"Country"}
-      options={["op1", "op2", "op3"]}
+      options={[
+        {
+          value: Country.USA,
+          content: Country.USA,
+        },
+        {
+          value: Country.Canada,
+          content: Country.Canada,
+        },
+        {
+          value: Country.Ukraine,
+          content: Country.Ukraine,
+        },
+        {
+          value: Country.Russia,
+          content: Country.Russia,
+        },
+        {
+          value: Country.German,
+          content: Country.German,
+        },
+      ]}
       readOnly={false}
     />
   ),
@@ -26,7 +48,28 @@ export const PrimaryDark: Story = {
   render: () => (
     <Select
       label={"Country"}
-      options={["op1", "op2", "op3"]}
+      options={[
+        {
+          value: Country.USA,
+          content: Country.USA,
+        },
+        {
+          value: Country.Canada,
+          content: Country.Canada,
+        },
+        {
+          value: Country.Ukraine,
+          content: Country.Ukraine,
+        },
+        {
+          value: Country.Russia,
+          content: Country.Russia,
+        },
+        {
+          value: Country.German,
+          content: Country.German,
+        },
+      ]}
       readOnly={false}
     />
   ),
@@ -36,7 +79,28 @@ export const PrimaryBlue: Story = {
   render: () => (
     <Select
       label={"Country"}
-      options={["op1", "op2", "op3"]}
+      options={[
+        {
+          value: Country.USA,
+          content: Country.USA,
+        },
+        {
+          value: Country.Canada,
+          content: Country.Canada,
+        },
+        {
+          value: Country.Ukraine,
+          content: Country.Ukraine,
+        },
+        {
+          value: Country.Russia,
+          content: Country.Russia,
+        },
+        {
+          value: Country.German,
+          content: Country.German,
+        },
+      ]}
       readOnly={false}
     />
   ),
@@ -45,7 +109,28 @@ export const PrimaryLightDisabled: Story = {
   render: () => (
     <Select
       label={"Country"}
-      options={["op1", "op2", "op3"]}
+      options={[
+        {
+          value: Country.USA,
+          content: Country.USA,
+        },
+        {
+          value: Country.Canada,
+          content: Country.Canada,
+        },
+        {
+          value: Country.Ukraine,
+          content: Country.Ukraine,
+        },
+        {
+          value: Country.Russia,
+          content: Country.Russia,
+        },
+        {
+          value: Country.German,
+          content: Country.German,
+        },
+      ]}
     />
   ),
 };
@@ -54,7 +139,28 @@ export const PrimaryDarkDisabled: Story = {
   render: () => (
     <Select
       label={"Country"}
-      options={["op1", "op2", "op3"]}
+      options={[
+        {
+          value: Country.USA,
+          content: Country.USA,
+        },
+        {
+          value: Country.Canada,
+          content: Country.Canada,
+        },
+        {
+          value: Country.Ukraine,
+          content: Country.Ukraine,
+        },
+        {
+          value: Country.Russia,
+          content: Country.Russia,
+        },
+        {
+          value: Country.German,
+          content: Country.German,
+        },
+      ]}
     />
   ),
 };
@@ -63,7 +169,28 @@ export const PrimaryBlueDisabled: Story = {
   render: () => (
     <Select
       label={"Country"}
-      options={["op1", "op2", "op3"]}
+      options={[
+        {
+          value: Country.USA,
+          content: Country.USA,
+        },
+        {
+          value: Country.Canada,
+          content: Country.Canada,
+        },
+        {
+          value: Country.Ukraine,
+          content: Country.Ukraine,
+        },
+        {
+          value: Country.Russia,
+          content: Country.Russia,
+        },
+        {
+          value: Country.German,
+          content: Country.German,
+        },
+      ]}
     />
   ),
 };

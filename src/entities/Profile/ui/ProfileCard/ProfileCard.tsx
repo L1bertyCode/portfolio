@@ -13,7 +13,11 @@ import { getProfileReadOnly } from "../../model/selectors/getProfileReadOnly/get
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import img from "@/shared/assets/tests/storybook.jpg";
 import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Select } from "@/shared/ui/Select/Select";
+import {
+  Currency,
+  CurrencySelect,
+} from "@/entities/Currency";
+import { Country } from "@/shared/const/common";
 
 interface ProfileCardProps {
   className?: string;
@@ -27,6 +31,12 @@ interface ProfileCardProps {
   onChangeCity?: (value?: string) => void;
   onChangeAvatar?: (value?: string) => void;
   onChangeUsername?: (value?: string) => void;
+  onChangeCurrency?: (
+    currency?: (typeof Currency)[keyof typeof Currency]
+  ) => void;
+  onChangeCountry?: (
+    country?: (typeof Country)[keyof typeof Country]
+  ) => void;
 }
 
 export const ProfileCard = memo(
@@ -43,6 +53,8 @@ export const ProfileCard = memo(
       onChangeCity,
       onChangeAvatar,
       onChangeUsername,
+      onChangeCurrency,
+      onChangeCountry,
     } = props;
     const dispatch = useAppDispatch();
     const readOnly = useSelector(getProfileReadOnly);
@@ -134,10 +146,10 @@ export const ProfileCard = memo(
                 placeholder={t("Username")}
                 onChange={onChangeUsername}
               />
-              <Select
-                label={t("Country")}
-                options={["op1", "op2", "op3"]}
+              <CurrencySelect
+                value={data?.currency}
                 readOnly={readOnly}
+                onChange={onChangeCurrency}
               />
             </div>
           </>

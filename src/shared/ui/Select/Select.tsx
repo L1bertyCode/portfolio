@@ -1,13 +1,25 @@
-import { SelectHTMLAttributes, memo } from "react";
+import {
+  ChangeEvent,
+  SelectHTMLAttributes,
+  memo,
+  useMemo,
+} from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 
 import s from "./Select.module.scss";
-
-interface SelectProps
-  extends SelectHTMLAttributes<HTMLSelectElement> {
+type HTMLSelectProps = Omit<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  "onChange"
+>;
+export interface SelectOptions {
+  value: string;
+  content: string;
+}
+interface SelectProps extends HTMLSelectProps {
   className?: string;
-  name?: string;
-  options: string[];
+  options: SelectOptions[];
+  value?: string;
+  onChange?: (value: string) => void;
   readOnly?: boolean;
   label?: string;
 }
@@ -16,11 +28,28 @@ export const Select = memo((props: SelectProps) => {
   const {
     className,
     options,
-    name,
+    value,
+    onChange,
     readOnly = true,
     label,
     ...otherProps
   } = props;
+  const optionsList = useMemo(() => {
+    return options?.map((optionItem, key) => (
+      <option
+        key={optionItem.value}
+        className={s.option}
+        value={optionItem.value}
+      >
+        {optionItem.content}
+      </option>
+    ));
+  }, [options]);
+  const onChangeHandler = (
+    e: ChangeEvent<HTMLSelectElement>
+  ) => {
+    onChange?.(e.target.value);
+  };
   return (
     <>
       {label && (
@@ -32,19 +61,17 @@ export const Select = memo((props: SelectProps) => {
         </span>
       )}
       <select
+        {...otherProps}
         disabled={readOnly}
-        name={name}
         className={classNames(
           s.select,
           { [s.readOnly]: readOnly },
           [className]
         )}
+        value={value}
+        onChange={onChangeHandler}
       >
-        {options?.map((option, key) => (
-          <option className={s.option} value={option + key}>
-            {option}
-          </option>
-        ))}
+        {optionsList}
       </select>
     </>
   );

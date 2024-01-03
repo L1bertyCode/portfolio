@@ -77,5 +77,6 @@
   "Password": "Пароль",
   "Name": "Имя",
   "Surname": "Фамилия",
-  "Country": "Страна"
+  "Country": "Страна",
+  "Currency": "Валюта"
 }

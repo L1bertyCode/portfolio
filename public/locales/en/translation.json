@@ -80,5 +80,6 @@
   "Password": "Password",
   "Name": "Name",
   "Surname": "Surname",
-  "Country": "Country"
+  "Country": "Country",
+  "Currency": "Currency"
 }
