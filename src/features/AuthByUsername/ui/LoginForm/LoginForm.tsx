@@ -68,7 +68,7 @@ const LoginForm = memo((props: LoginFormProps) => {
     );
     if (result.meta.requestStatus === "fulfilled") {
       onSuccess?.();
-      // navigate("/profile");
+      navigate("/profile");
     }
   }, [dispatch, username, password]);
   return (

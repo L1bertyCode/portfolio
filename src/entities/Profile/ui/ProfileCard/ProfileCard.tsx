@@ -17,7 +17,7 @@ import {
   Currency,
   CurrencySelect,
 } from "@/entities/Currency";
-import { Country } from "@/shared/const/common";
+import { Country, CountrySelect } from "@/entities/Country";
 
 interface ProfileCardProps {
   className?: string;
@@ -116,7 +116,6 @@ export const ProfileCard = memo(
               <Input
                 readOnly={readOnly}
                 className={s.input}
-                type={"number"}
                 value={userChangeData?.age}
                 label={t("Age")}
                 placeholder={t("Age")}
@@ -147,9 +146,14 @@ export const ProfileCard = memo(
                 onChange={onChangeUsername}
               />
               <CurrencySelect
-                value={data?.currency}
+                value={userChangeData?.currency}
                 readOnly={readOnly}
                 onChange={onChangeCurrency}
+              />
+              <CountrySelect
+                value={userChangeData?.country}
+                readOnly={readOnly}
+                onChange={onChangeCountry}
               />
             </div>
           </>

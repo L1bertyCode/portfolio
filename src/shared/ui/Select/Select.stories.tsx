@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Select } from "./Select";
 import { ThemeDecorator } from "@/shared/config/StorybookDecorators";
 import { Theme } from "@/app/providers/ThemeProvider/ui/ThemeProvider";
-import { Country } from "@/shared/const/common";
+import { Country } from "@/entities/Country";
 
 const meta: Meta<typeof Select> = {
   component: Select,

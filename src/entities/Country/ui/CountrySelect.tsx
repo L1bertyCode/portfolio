@@ -1,34 +1,41 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { classNames } from "@/shared/lib/classNames/classNames";
-
 import { Select } from "@/shared/ui/Select/Select";
-import { Currency } from "../model/types/currency";
+import { Country } from "../model/types/country";
 
-interface CurrencyProps {
+interface CountrySelectProps {
   className?: string;
   readOnly?: boolean;
   value?: string;
   onChange?: (
-    value?: (typeof Currency)[keyof typeof Currency]
+    value?: (typeof Country)[keyof typeof Country]
   ) => void;
 }
 const options = [
   {
-    value: Currency.EUR,
-    content: Currency.EUR,
+    value: Country.Canada,
+    content: Country.Canada,
   },
   {
-    value: Currency.RUB,
-    content: Currency.RUB,
+    value: Country.USA,
+    content: Country.USA,
   },
   {
-    value: Currency.USD,
-    content: Currency.USD,
+    value: Country.Russia,
+    content: Country.Russia,
+  },
+  {
+    value: Country.Ukraine,
+    content: Country.Ukraine,
+  },
+  {
+    value: Country.German,
+    content: Country.German,
   },
 ];
-export const CurrencySelect = memo(
-  (props: CurrencyProps) => {
+export const CountrySelect = memo(
+  (props: CountrySelectProps) => {
     const {
       className,
       readOnly = true,
@@ -39,7 +46,7 @@ export const CurrencySelect = memo(
     const onChangeHandler = useCallback(
       (value: string) => {
         onChange?.(
-          value as (typeof Currency)[keyof typeof Currency]
+          value as (typeof Country)[keyof typeof Country]
         );
       },
       [onChange]
@@ -47,7 +54,7 @@ export const CurrencySelect = memo(
     return (
       <Select
         className={classNames("", {}, [className])}
-        label={t("Currency")}
+        label={t("Country")}
         options={options}
         readOnly={readOnly}
         value={value}

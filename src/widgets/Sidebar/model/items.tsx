@@ -6,6 +6,7 @@ export interface SidebarItemInterace {
   path: string;
   text: string;
   Icon: React.FunctionComponent<React.SVGProps<SVGElement>>;
+  authOnly?: boolean;
 }
 export const sidebatItemsList: SidebarItemInterace[] = [
   { path: RoutePath.main, Icon: MainIcon, text: "Main" },
@@ -14,5 +15,6 @@ export const sidebatItemsList: SidebarItemInterace[] = [
     path: RoutePath.profile,
     Icon: ProfileIcon,
     text: "Profile",
+    authOnly: true,
   },
 ];

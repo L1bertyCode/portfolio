@@ -1,5 +1,12 @@
-import { Country } from "@/shared/const/common";
-import { Currency } from "@/entities/Currency/model/types/currency";
+import { Country } from "@/entities/Country";
+import { Currency } from "@/entities/Currency";
+export const validateProfileError = {
+  INCORRECT_USER_DATA: "INCORRECT_USER_DATA",
+  INCORRECT_AGE: "INCORRECT_AGE",
+  INCORRECT_COUNTRY: "INCORRECT_COUNTRY",
+  NO_DATA: "NO_DATA",
+  SERVER_ERROR: "SERVER_ERROR",
+} as const;
 export interface Profile {
   firstname?: string;
   lastname?: string;
@@ -16,4 +23,7 @@ export interface ProfileSchema {
   isLoading: boolean;
   error?: string;
   readOnly?: boolean;
+  validateErrors?:
+   (typeof validateProfileError)[keyof typeof validateProfileError][]
+   ;
 }

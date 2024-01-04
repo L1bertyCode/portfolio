@@ -13,6 +13,7 @@ import {
   getProfileData,
   getProfileError,
   getProfileIsLoading,
+  getProfileValidateErrors,
   profileActions,
   profileReducer,
 } from "@/entities/Profile";
@@ -20,8 +21,9 @@ import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { getProfileUserChangeData } from "@/entities/Profile/model/selectors/getProfileUserChangeData/getProfileUserChangeData";
-import { Country } from "@/shared/const/common";
+import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
+import { Text } from "@/shared/ui/Text/Text";
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -40,8 +42,13 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const userChangeData = useSelector(
     getProfileUserChangeData
   );
+
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
+  const validateErrors = useSelector(
+    getProfileValidateErrors
+  );
+  console.log("validateProfileData error", validateErrors);
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
@@ -76,7 +83,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     (value?: string) =>
       dispatch(
         profileActions.updateProfile({
-          age: Number(value || 0),
+          age: Number(value?.replace(/\D/g, "") || 0),
         })
       ),
     [dispatch]
@@ -128,6 +135,17 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         ])}
       >
         <ProfilePageHeader />
+        {validateErrors?.length
+          ? validateErrors.map((err) => {
+              return (
+                <Text
+                  key={err}
+                  text={err}
+                  colorType="error"
+                />
+              );
+            })
+          : null}
         <ProfileCard
           data={data}
           userChangeData={userChangeData}

@@ -11,7 +11,10 @@ export enum AppRoutes {
   PROFILE = "profile",
   NOTFOUND = "not-found",
 }
-type ExtendsRouteProps = RouteProps & {
+type AppRouteProps = RouteProps & {
+  authOnly?: boolean;
+};
+type ExtendsRouteProps = AppRouteProps & {
   icon?: ReactNode;
 };
 export const RoutePath: Record<AppRoutes, string> = {
@@ -39,6 +42,7 @@ export const routesConfig: Record<
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
   },
   [AppRoutes.NOTFOUND]: {
     path: RoutePath["not-found"],

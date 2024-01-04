@@ -36,13 +36,13 @@
     }
   ],
   "profile": {
-    "firstname": "Firstna",
-    "lastname": "Lastname",
-    "age": 18,
-    "currency": "USD",
-    "country": "USA",
-    "city": "Boston",
+    "firstname": "",
+    "lastname": "Ln",
+    "age": 20,
+    "currency": "EUR",
+    "country": "German",
+    "city": "Boston1",
     "username": "admin",
-    "avatar": "avatar"
+    "avatar": "avatar1"
   }
 }

@@ -35,7 +35,7 @@ export const Select = memo((props: SelectProps) => {
     ...otherProps
   } = props;
   const optionsList = useMemo(() => {
-    return options?.map((optionItem, key) => (
+    return options?.map((optionItem) => (
       <option
         key={optionItem.value}
         className={s.option}
