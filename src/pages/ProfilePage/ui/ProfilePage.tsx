@@ -16,6 +16,7 @@ import {
   getProfileValidateErrors,
   profileActions,
   profileReducer,
+  validateProfileErrors,
 } from "@/entities/Profile";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
@@ -48,7 +49,23 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const validateErrors = useSelector(
     getProfileValidateErrors
   );
-  console.log("validateProfileData error", validateErrors);
+  const validateErrorsTranslates = {
+    [validateProfileErrors.SERVER_ERROR]: t(
+      "Server error on save"
+    ),
+    [validateProfileErrors.NO_DATA]: t(
+      "Data not specified"
+    ),
+    [validateProfileErrors.INCORRECT_USER_DATA]: t(
+      "Firstname and lastname name are required"
+    ),
+    [validateProfileErrors.INCORRECT_COUNTRY]: t(
+      "Incorrect region"
+    ),
+    [validateProfileErrors.INCORRECT_AGE]:
+      t("Incorrect age"),
+  };
+
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
@@ -140,7 +157,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
               return (
                 <Text
                   key={err}
-                  text={err}
+                  text={validateErrorsTranslates[err]}
                   colorType="error"
                 />
               );

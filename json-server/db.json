@@ -36,12 +36,12 @@
     }
   ],
   "profile": {
-    "firstname": "",
+    "firstname": "F",
     "lastname": "Ln",
     "age": 20,
     "currency": "EUR",
     "country": "German",
-    "city": "Boston1",
+    "city": "Boston",
     "username": "admin",
     "avatar": "avatar1"
   }

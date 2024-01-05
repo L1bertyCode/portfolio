@@ -1,6 +1,6 @@
 import { Country } from "@/entities/Country";
 import { Currency } from "@/entities/Currency";
-export const validateProfileError = {
+export const validateProfileErrors = {
   INCORRECT_USER_DATA: "INCORRECT_USER_DATA",
   INCORRECT_AGE: "INCORRECT_AGE",
   INCORRECT_COUNTRY: "INCORRECT_COUNTRY",
@@ -23,7 +23,5 @@ export interface ProfileSchema {
   isLoading: boolean;
   error?: string;
   readOnly?: boolean;
-  validateErrors?:
-   (typeof validateProfileError)[keyof typeof validateProfileError][]
-   ;
+  validateErrors?: (typeof validateProfileErrors)[keyof typeof validateProfileErrors][];
 }

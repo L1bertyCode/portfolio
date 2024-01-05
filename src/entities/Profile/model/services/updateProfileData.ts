@@ -6,7 +6,7 @@ import {
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   Profile,
-  validateProfileError,
+  validateProfileErrors,
 } from "../type/profile";
 import { getProfileUserChangeData } from "../selectors/getProfileUserChangeData/getProfileUserChangeData";
 import { validateProfileData } from "./vlidateProfileData";
@@ -15,7 +15,7 @@ export const updateProfileData = createAsyncThunk<
   Profile,
   void,
   {
-    rejectValue: (typeof validateProfileError)[keyof typeof validateProfileError][];
+    rejectValue: (typeof validateProfileErrors)[keyof typeof validateProfileErrors][];
     extra: ThunkExtraArgs;
     state: StateSchema;
   }
@@ -23,12 +23,10 @@ export const updateProfileData = createAsyncThunk<
   const userUpdateData = getProfileUserChangeData(
     thunkAPI.getState()
   );
-  const errorsValidate = validateProfileData(userUpdateData);
-
-
-  if (errorsValidate?.length) {
-    console.log("validateProfileData error", errorsValidate);
-    thunkAPI.rejectWithValue(errorsValidate);
+  const validateErrors =
+    validateProfileData(userUpdateData);
+  if (validateErrors.length) {
+    return thunkAPI.rejectWithValue(validateErrors);
   }
   try {
     const response = await thunkAPI.extra.api.put<Profile>(
@@ -39,7 +37,7 @@ export const updateProfileData = createAsyncThunk<
   } catch (e) {
     console.log(e);
     return thunkAPI.rejectWithValue([
-      validateProfileError.SERVER_ERROR,
+      validateProfileErrors.SERVER_ERROR,
     ]);
   }
 });

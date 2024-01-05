@@ -72,10 +72,6 @@ export const profileSlice = createSlice({
       (state, action) => {
         state.isLoading = false;
         state.validateErrors = action.payload;
-        console.log(
-          "state.validateErrors",
-          state.validateErrors
-        );
       }
     );
     builder.addCase(

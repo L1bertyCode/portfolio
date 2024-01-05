@@ -28,7 +28,7 @@
   "Server error on save": "Серверная ошибка при сохранении",
   "Incorrect region": "Некорректный регион",
   "Data not specified": "Данные не указаны",
-  "First and last name are required": "Имя и фамилия обязательны",
+
   "Incorrect age": "Некорректный возраст",
   "Articles": "Статьи",
   "Article not found": "Статья не найдена",
@@ -78,5 +78,6 @@
   "Name": "Имя",
   "Surname": "Фамилия",
   "Country": "Страна",
-  "Currency": "Валюта"
+  "Currency": "Валюта",
+  "Firstname and lastname name are required": "Имя и фамилия обязательны"
 }
