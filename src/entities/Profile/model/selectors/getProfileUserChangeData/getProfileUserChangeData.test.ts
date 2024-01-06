@@ -1,11 +1,11 @@
 import { StateSchema } from "@/app/providers/StoreProvider";
-import { getProfileData } from "./getProfileData";
+import { getProfileUserChangeData } from "./getProfileUserChangeData";
 import { Currency } from "@/entities/Currency";
 import { Country } from "@/entities/Country";
 
-describe("getProfileData", () => {
+describe("getProfileUserChangeData", () => {
   test("return data", () => {
-    const data = {
+    const userChangeData = {
       firstname: "F",
       lastname: "Ln",
       age: 20,
@@ -17,17 +17,17 @@ describe("getProfileData", () => {
     };
     const state: DeepPartial<StateSchema> = {
       profile: {
-        data,
+        userChangeData,
       },
     };
-    expect(getProfileData(state as StateSchema)).toEqual(
-      data
-    );
+    expect(
+      getProfileUserChangeData(state as StateSchema)
+    ).toEqual(userChangeData);
   });
   test("should work with empty state", () => {
     const state: DeepPartial<StateSchema> = {};
-    expect(getProfileData(state as StateSchema)).toEqual(
-      undefined
-    );
+    expect(
+      getProfileUserChangeData(state as StateSchema)
+    ).toEqual(undefined);
   });
 });

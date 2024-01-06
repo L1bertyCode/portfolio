@@ -3,7 +3,7 @@ import {
   createSlice,
 } from "@reduxjs/toolkit";
 import { Profile, ProfileSchema } from "../type/profile";
-import { fetchProfileData } from "../services/fetchProfileData";
+import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
 import { updateProfileData } from "../services/updateProfileData";
 
 const initialState: ProfileSchema = {

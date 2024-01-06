@@ -9,7 +9,7 @@ import {
   validateProfileErrors,
 } from "../type/profile";
 import { getProfileUserChangeData } from "../selectors/getProfileUserChangeData/getProfileUserChangeData";
-import { validateProfileData } from "./vlidateProfileData";
+import { validateProfileData } from "./validateProfileData/validateProfileData";
 
 export const updateProfileData = createAsyncThunk<
   Profile,

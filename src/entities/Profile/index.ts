@@ -8,7 +8,7 @@ export { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getPr
 export { getProfileData } from "./model/selectors/getProfileData/getProfileData";
 export { ProfileCard } from "./ui/ProfileCard/ProfileCard";
 
-export { fetchProfileData } from "./model/services/fetchProfileData";
+export { fetchProfileData } from "./model/services/fetchProfileData/fetchProfileData";
 
 export {
   profileActions,

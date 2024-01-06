@@ -1,7 +1,7 @@
 import {
   Profile,
   validateProfileErrors,
-} from "../type/profile";
+} from "../../type/profile";
 
 export const validateProfileData = (profile?: Profile) => {
   if (!profile) {
