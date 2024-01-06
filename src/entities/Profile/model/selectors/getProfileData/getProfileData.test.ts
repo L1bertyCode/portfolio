@@ -1,0 +1,3 @@
+describe("getProfileData", () => {
+  test("getProfileData", () => {});
+});

@@ -3,6 +3,7 @@ import { Button } from "@/shared/ui/Button/Button";
 import ThemeIcon from "@/shared/assets/icons/theme-icon.svg";
 import s from "./ThemeSwitcher.module.scss";
 import { classNames } from "@/shared/lib/classNames/classNames";
+import { Theme } from "@/app/providers/ThemeProvider/ui/ThemeProvider";
 interface ThemeSwitcherProps {
   className?: string;
 }
@@ -11,9 +12,11 @@ export function ThemeSwitcher(props: ThemeSwitcherProps) {
   const { className } = props;
   return (
     <Button
-      className={classNames(s.themeSwitcher, {}, [
-        className,
-      ])}
+      className={classNames(
+        s.themeSwitcher,
+        { },
+        [className]
+      )}
       onClick={() => setTheme(theme)}
     >
       <ThemeIcon className={s.icon} />

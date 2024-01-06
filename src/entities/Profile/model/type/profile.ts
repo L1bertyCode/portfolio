@@ -20,7 +20,7 @@ export interface Profile {
 export interface ProfileSchema {
   data?: Profile;
   userChangeData?: Profile;
-  isLoading: boolean;
+  isLoading?: boolean;
   error?: string;
   readOnly?: boolean;
   validateErrors?: (typeof validateProfileErrors)[keyof typeof validateProfileErrors][];

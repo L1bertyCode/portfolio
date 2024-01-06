@@ -13,6 +13,7 @@ export function buildPlugins({
   buildPaths,
   port,
   apiUrl,
+  project,
 }: BuildOptions): WebpackPluginInstance[] {
   let plugins = [
     new HtmlWebpackPlugin({
@@ -23,6 +24,7 @@ export function buildPlugins({
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
     new MiniCssExtractPlugin({
       filename: "css/[name].[contenthash:8].css",

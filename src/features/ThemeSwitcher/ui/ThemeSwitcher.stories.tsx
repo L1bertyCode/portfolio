@@ -17,16 +17,54 @@ export default meta;
 type Story = StoryObj<typeof ThemeSwitcher>;
 
 export const Light: Story = {
-  render: () => <ThemeSwitcher />,
+  render: () => (
+    <div
+      style={{
+        background: "black",
+        width: "100px",
+        height: "100px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <ThemeSwitcher />
+    </div>
+  ),
 };
 
 export const Dark: Story = {
   decorators: [ThemeDecorator(Theme.DARK)],
-  render: () => <ThemeSwitcher />,
+  render: () => (
+    <div
+      style={{
+        background: "#fcfcfc",
+        width: "100px",
+        height: "100px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <ThemeSwitcher />
+    </div>
+  ),
 };
-
 
 export const Blue: Story = {
   decorators: [ThemeDecorator(Theme.BLUE)],
-  render: () => <ThemeSwitcher />,
+  render: () => (
+    <div
+      style={{
+        background: "#fcfcfc",
+        width: "100px",
+        height: "100px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <ThemeSwitcher />
+    </div>
+  ),
 };

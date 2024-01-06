@@ -24,7 +24,7 @@ interface ProfileCardProps {
   data?: Profile;
   userChangeData?: Profile;
   error?: string;
-  isLoading: boolean;
+  isLoading?: boolean;
   onChangeFirstname?: (value?: string) => void;
   onChangeLastname?: (value?: string) => void;
   onChangeAge?: (value?: string) => void;
@@ -91,9 +91,9 @@ export const ProfileCard = memo(
           <Loader />
         ) : (
           <>
-            {data?.avatar && (
+            {userChangeData?.avatar && (
               <div className={s.avatarWrapper}>
-                <Avatar src={img} />
+                <Avatar src={userChangeData.avatar} />
               </div>
             )}
             <div className={s.data}>
