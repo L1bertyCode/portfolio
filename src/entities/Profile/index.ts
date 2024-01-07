@@ -1,7 +1,7 @@
 export { validateProfileErrors } from "./model/type/profile";
 
 export { getProfileValidateErrors } from "./model/selectors/getProfileValidateErrors/getProfileValidateErrors";
-export { updateProfileData } from "./model/services/updateProfileData";
+export { updateProfileData } from "./model/services/updateProfileData/updateProfileData";
 export { getProfileReadOnly } from "./model/selectors/getProfileReadOnly/getProfileReadOnly";
 export { getProfileError } from "./model/selectors/getProfileError/getProfileError";
 export { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getProfileIsLoading";

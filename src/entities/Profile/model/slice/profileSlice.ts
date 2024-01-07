@@ -4,7 +4,7 @@ import {
 } from "@reduxjs/toolkit";
 import { Profile, ProfileSchema } from "../type/profile";
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
-import { updateProfileData } from "../services/updateProfileData";
+import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 
 const initialState: ProfileSchema = {
   isLoading: false,
@@ -24,6 +24,11 @@ export const profileSlice = createSlice({
     ) => {
       state.readOnly = action.payload;
     },
+    cancelUpdateProfile: (state) => {
+      state.readOnly = true;
+      state.userChangeData = state.data;
+      state.validateErrors = undefined;
+    },
     updateProfile: (
       state,
       action: PayloadAction<Profile>
@@ -33,15 +38,6 @@ export const profileSlice = createSlice({
         ...action.payload,
       };
     },
-    cancelUpdateProfile: (state) => {
-      state.readOnly = true;
-      state.userChangeData = state.data;
-      state.validateErrors = undefined;
-    },
-    // saveUpdateProfile: (state) => {
-    //   state.readOnly = true;
-    //   state.data = state.userChangeData;
-    // },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProfileData.pending, (state) => {

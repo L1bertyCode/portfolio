@@ -7,9 +7,9 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   Profile,
   validateProfileErrors,
-} from "../type/profile";
-import { getProfileUserChangeData } from "../selectors/getProfileUserChangeData/getProfileUserChangeData";
-import { validateProfileData } from "./validateProfileData/validateProfileData";
+} from "../../type/profile";
+import { getProfileUserChangeData } from "../../selectors/getProfileUserChangeData/getProfileUserChangeData";
+import { validateProfileData } from "../validateProfileData/validateProfileData";
 
 export const updateProfileData = createAsyncThunk<
   Profile,
@@ -33,6 +33,9 @@ export const updateProfileData = createAsyncThunk<
       "/profile",
       userUpdateData
     );
+    if (!response.data) {
+      throw new Error();
+    }
     return response.data;
   } catch (e) {
     console.log(e);
