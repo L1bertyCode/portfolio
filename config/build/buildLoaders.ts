@@ -20,7 +20,8 @@ export function buildLoaders(
               keyAsDefaultValue: true,
             },
           ],
-        ],
+          isDev && require.resolve("react-refresh/babel"),
+        ].filter(Boolean),
       },
     },
   };

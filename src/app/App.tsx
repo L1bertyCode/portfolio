@@ -9,10 +9,14 @@ import { useTheme } from "@/shared/lib/hooks/useTheme";
 
 import { PageLoader } from "@/widgets/PageLoader";
 import { AppRouter } from "./providers/AppRouter";
-import { useDispatch } from "react-redux";
-import { userActions } from "@/entities/User";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getUserInited,
+  userActions,
+} from "@/entities/User";
 
 export function App() {
+  const inited = useSelector(getUserInited);
   const loading = <PageLoader />;
   const dispatch = useDispatch();
   useEffect(() => {
@@ -26,7 +30,7 @@ export function App() {
         <Sidebar />
         <div className="page-wrapper">
           <Suspense fallback={loading}>
-            <AppRouter />
+            {inited && <AppRouter />}
           </Suspense>
         </div>
       </div>

@@ -9,7 +9,7 @@ function MainPage() {
   const [value, setValue] = useState("");
   const onChange = (val: string) => setValue(val);
   return (
-    <div className={s.mainPage}>
+    <div className={s.mainPage} >
       {t("Main")}
     </div>
   );
