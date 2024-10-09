@@ -1,7 +1,8 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = (env) => {
+import path from "path";
+import { Configuration, ProgressPlugin } from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+
+const config = (env: any): Configuration => {
   const mode = env.mode || "development";
   return {
     mode: mode,
@@ -12,7 +13,7 @@ module.exports = (env) => {
       clean: true
     },
     plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, "public", "index.html") }),
-    new webpack.ProgressPlugin()
+    new ProgressPlugin()
     ],
     module: {
       rules: [
@@ -35,3 +36,4 @@ module.exports = (env) => {
     },
   };
 };
+export default config;
