@@ -1,39 +1,19 @@
 import path from "path";
 import { Configuration, ProgressPlugin } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import { buildResolvers } from "./config/build/buildResolvers";
+import { buildLoaders } from "./config/build/buildLoaders";
+import { buildPlugins } from "./config/build/buildPlugis";
+import { BuildEnv, BuildPaths } from "./config/build/types/config";
+import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 
-const config = (env: any): Configuration => {
+export default (env: BuildEnv): Configuration => {
   const mode = env.mode || "development";
-  return {
-    mode: mode,
+  const isDev = mode === "development";
+  const paths: BuildPaths = {
     entry: path.resolve(__dirname, "src", "index.ts"),
-    output: {
-      filename: '[name].[contenthash].js',
-      path: path.resolve(__dirname, 'build'),
-      clean: true
-    },
-    plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, "public", "index.html") }),
-    new ProgressPlugin()
-    ],
-    module: {
-      rules: [
-        {
-          test: /\.tsx?$/,
-          use: 'ts-loader',
-          exclude: /node_modules/,
-        },
-        {
-          test: /\.m?js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: "babel-loader",
-          }
-        }
-      ]
-    },
-    resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
-    },
+    build: path.resolve(__dirname, 'build'),
+    html: path.resolve(__dirname, "public", "index.html")
   };
+  return buildWebpackConfig({ mode, paths, isDev });
 };
-export default config;
