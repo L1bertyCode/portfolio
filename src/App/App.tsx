@@ -1,7 +1,11 @@
-import "./App.scss";
+import s from "./App.module.scss";
+
 const App = () => {
   return (
-    <div className="color">App</div>
+    <div className="app">
+
+      <div className={s.clr}>App</div>
+    </div>
   );
 };
 
