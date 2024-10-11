@@ -1,0 +1,10 @@
+@import url("./reset.scss");
+@import url("./theme/light.scss");
+@import url("./theme/dark.scss");
+
+.app {
+  font-size: 30px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}

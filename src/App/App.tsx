@@ -1,15 +1,22 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import s from "./App.module.scss";
 import { Link, Route, Routes } from "react-router-dom";
 import { MainPage } from "../pages/MainPage";
 import { NotFoundPage } from "../pages/NotFoundPage";
 import { ProfilePage } from "../pages/ProfilePage";
+type Theme = "light" | "dark";
 
 const App = () => {
+  const [theme, setTheme] = useState<Theme>("dark");
   return (
-    <div className="app">
-      <Link to={"/"}>Main</Link>
-      <Link to={"/profile"}>Profile</Link>
+    <div className={`app app_${theme}_theme`}>
+      <header>
+        <nav>
+          <Link to={"/"}>Main</Link>
+          <Link to={"/profile"}>Profile</Link>
+        </nav>
+        <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>Theme</button>
+      </header>
 
       <Suspense fallback={
         <div className={s.loading}>Loading</div>}>
