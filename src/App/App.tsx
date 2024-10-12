@@ -6,12 +6,12 @@ import { NotFoundPage } from "../pages/NotFoundPage";
 import { ProfilePage } from "../pages/ProfilePage";
 import { Theme, ThemeContext } from "./context/ThemeContext/ThemeContext";
 import { useTheme } from "./context/useTheme/useTheme";
+import { classNames } from "../shared/helpers/classNames/classNames";
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
-
   return (
-    <div className={`app app_${theme}_theme`}>
+    <div className={classNames("app", {}, [`app_${theme}_theme`])}>
       <header>
         <nav>
           <Link to={"/"}>Main</Link>
