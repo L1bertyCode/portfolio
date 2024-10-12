@@ -3,7 +3,7 @@
 @import url("./theme/dark.scss");
 
 .app {
-  font-size: 30px;
+  font: var(--font-m);
   background: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
