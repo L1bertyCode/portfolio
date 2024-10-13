@@ -1,13 +1,11 @@
-import { Suspense } from "react";
-import s from "./App.module.scss";
-import { Link, Route, Routes } from "react-router-dom";
-import { useTheme } from "@/shared/providers";
+import { Link } from "react-router-dom";
+
+
+
 import { classNames } from "@/shared/lib/classNames/classNames";
-import { MainPage } from "@/pages/MainPage";
-import { ProfilePage } from "@/pages/ProfilePage";
-import { NotFoundPage } from "@/pages/NotFoundPage";
-
-
+import s from "./App.module.scss";
+import { useTheme } from "./providers/ThemeProvider";
+import { AppRouter } from "./providers/router";
 
 
 const App = () => {
@@ -17,21 +15,11 @@ const App = () => {
       <header>
         <nav>
           <Link to={"/"}>Main</Link>
-          <Link to={"/profile"}>Profile</Link>
+          <Link to={"/skills"}>Skills</Link>
         </nav>
         <button onClick={toggleTheme}>Theme</button>
       </header>
-
-      <Suspense fallback={
-        <div className={s.loading}>Loading</div>}>
-
-        <Routes>
-          <Route path={"/"} element={<MainPage />} />
-          <Route path={"/profile"} element={<ProfilePage />} />
-          <Route path={"*"} element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-
+      <AppRouter />
     </div>
   );
 };
