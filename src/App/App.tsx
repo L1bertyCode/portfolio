@@ -7,6 +7,7 @@ import s from "./App.module.scss";
 import { useTheme } from "./providers/ThemeProvider";
 import { AppRouter } from "./providers/router";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { Button } from "@/shared/ui/Button/Button";
 
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
           <AppLink to={"/"}>Main</AppLink>
           <AppLink to={"/skills"}>Skills</AppLink>
         </nav>
-        <button onClick={toggleTheme}>Theme</button>
+        <Button onClick={toggleTheme}>Theme</Button>
       </header>
       <AppRouter />
     </div>

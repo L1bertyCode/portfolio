@@ -1,0 +1,15 @@
+ .Button {
+   cursor: pointer;
+ }
+
+ .clear {
+   background: none;
+   border: none
+ }
+
+ .filled,
+ .accent {
+   padding: 6px 12px;
+   background: var(--text-color-accent);
+   color: var(--text-color-secondary);
+ }

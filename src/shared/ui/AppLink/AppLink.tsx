@@ -1,11 +1,18 @@
 import { Link, LinkProps } from "react-router-dom";
 
 import s from "./AppLink.module.scss";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
-interface AppLinkProps extends LinkProps { };
-export const AppLink = ({ to, children }: AppLinkProps) => {
+type AppLinkVariant = "primary" | "secondary";
+interface AppLinkProps extends LinkProps {
+  variant?: string;
+};
+export const AppLink = ({ children, to, variant = "secondary", ...otherProps }: AppLinkProps) => {
   return (
-    <Link to={to} className={s.AppLink}>
+    <Link
+      className={classNames(s.AppLink, {}, [s[variant]])}
+      to={to}
+      {...otherProps}>
       {children}
     </Link>
   );

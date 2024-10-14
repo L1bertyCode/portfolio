@@ -4,7 +4,14 @@
   font-weight: 500;
 
   text-decoration: none;
-  color: var(--text-color-secondary);
-
   padding: 8px 12px;
+}
+
+
+.primary {
+  color: var(--text-color-primary);
+}
+
+.secondary {
+  color: var(--text-color-secondary);
 }
