@@ -1,9 +1,12 @@
-interface AppLinkProps { };
+import { Link, LinkProps } from "react-router-dom";
+
 import s from "./AppLink.module.scss";
-export const AppLink = ({ }: AppLinkProps) => {
+
+interface AppLinkProps extends LinkProps { };
+export const AppLink = ({ to, children }: AppLinkProps) => {
   return (
-    <div className={s.AppLink}>
-      <div>AppLink</div>
-    </div>
+    <Link to={to} className={s.AppLink}>
+      {children}
+    </Link>
   );
 };
