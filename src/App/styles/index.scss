@@ -5,6 +5,11 @@
 .app {
   font: var(--font-m);
   background: var(--bg-color);
-  color: var(--text-color-primary );
+  color: var(--text-color-primary);
   min-height: 100vh;
+}
+
+.content {
+  width: 1200px;
+  margin: 0 auto;
 }

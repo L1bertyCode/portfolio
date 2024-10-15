@@ -14,6 +14,14 @@ export const buildLoaders = (isDev: boolean): RuleSetRule[] => {
       loader: "babel-loader",
     }
   };
+  const fileLoader = {
+    test: /\.(png|jpg|jpeg|gif|woff2|woff)$/i,
+    type: 'asset/resource',
+  };
+  const svgrLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  };
   const scssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -37,6 +45,8 @@ export const buildLoaders = (isDev: boolean): RuleSetRule[] => {
   return [
     tsLoader,
     babelLoader,
-    scssLoader
+    scssLoader,
+    fileLoader,
+    svgrLoader,
   ];
 };

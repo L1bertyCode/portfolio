@@ -6,20 +6,21 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 type ButtonVariant = "clear" | "filled" | "outlined";
 
 type ButtonColorType = | "accent";
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   colorType?: ButtonColorType;
 };
 
 export const Button = ({
   children,
+  className,
   variant = "filled",
   colorType = "accent",
   ...otherProps
 }: ButtonProps) => {
   return (
     <button
-      className={classNames(s.Button, {}, [s[variant], s[colorType]])}
+      className={classNames(s.Button, {}, [s[variant], s[colorType], className])}
       {...otherProps}
     >
       {children}
