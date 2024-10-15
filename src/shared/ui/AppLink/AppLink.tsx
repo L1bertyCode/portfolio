@@ -5,8 +5,9 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 
 type AppLinkVariant = "primary" | "secondary";
 interface AppLinkProps extends LinkProps {
-  variant?: string;
+  variant?: AppLinkVariant;
 };
+
 export const AppLink = ({ children, to, variant = "secondary", ...otherProps }: AppLinkProps) => {
   return (
     <Link

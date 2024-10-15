@@ -9,7 +9,7 @@ export const Navbar = ({ }:
   NavbarProps) => {
   const { toggleTheme } = useTheme();
   return (
-    <header className={s.Navbar}>
+    <div className={s.Navbar}>
       <AppLink to="/">logo</AppLink>
       <div>
         <nav>
@@ -18,6 +18,6 @@ export const Navbar = ({ }:
         </nav>
         <ThemeSwitcher onClick={toggleTheme} />
       </div>
-    </header>
+    </div>
   );
 };
