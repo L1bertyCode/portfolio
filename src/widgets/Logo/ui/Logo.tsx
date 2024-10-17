@@ -3,6 +3,6 @@ import s from "./Logo.module.scss";
 interface LogoProps { };
 export const Logo = ({ }: LogoProps) => {
   return (
-    <AppLink className={s.Logo} to="/">logo</AppLink>
+    <AppLink className={s.Logo} to="/">CODE</AppLink>
   );
 };

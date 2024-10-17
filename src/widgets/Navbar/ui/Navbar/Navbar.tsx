@@ -1,24 +1,19 @@
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 
-import { ThemeSwitcher } from "@/shared/ui/ThemeSwitcher";
-import { useTheme } from "@/shared/lib/useTheme/useTheme";
-
 import s from "./Navbar.module.scss";
 import { routeConfig } from "@/app/providers/router/config/routeConfig/routeConfig";
 interface NavbarProps { };
 export const Navbar = ({ }:
   NavbarProps) => {
-  const { toggleTheme } = useTheme();
+
   return (
-    <div className={s.Navbar}>
 
-      <nav>
-        {Object.values(routeConfig).map(route =>
-          <AppLink key={route.path} to={route.path}>{route.name}</AppLink>
-        )}
+    <nav className={s.Navbar}>
+      {Object.values(routeConfig).map(route =>
+        <AppLink key={route.path} to={route.path}>{route.name}</AppLink>
+      )}
 
-      </nav>
-      <ThemeSwitcher onClick={toggleTheme} />
-    </div>
+    </nav>
+
   );
 };

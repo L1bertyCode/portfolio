@@ -1,12 +1,12 @@
 import { MainPage } from "@/pages/MainPage";
+import { ProjectsPage } from "@/pages/ProjectsPage";
 import { SkillsPage } from "@/pages/SkillsPage";
-import { TechStackPage } from "@/pages/TechStackPage";
 import { RouteProps } from "react-router-dom";
 
 export enum AppRoutes {
   MAIN = "main",
   SKILLS = "skills",
-  TECHSTACK = "stack"
+  PROJECTS = "projects"
 }
 type UserRouteProps = RouteProps & {
   name: string;
@@ -14,23 +14,23 @@ type UserRouteProps = RouteProps & {
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.SKILLS]: "/skills",
-  [AppRoutes.TECHSTACK]: "/stack",
+  [AppRoutes.PROJECTS]: "/projects",
 };
 
 export const routeConfig: Record<AppRoutes, UserRouteProps> = {
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
     element: <MainPage />,
-    name: "Main"
+    name: "Home"
   },
   [AppRoutes.SKILLS]: {
     path: RoutePath.skills,
     element: <SkillsPage />,
-    name: "Skills"
+    name: "Tech Stack"
   },
-  [AppRoutes.TECHSTACK]: {
-    path: RoutePath.stack,
-    element: <TechStackPage />,
-    name: "TechStack"
+  [AppRoutes.PROJECTS]: {
+    path: RoutePath.projects,
+    element: <ProjectsPage />,
+    name: "Projects"
   }
 };
