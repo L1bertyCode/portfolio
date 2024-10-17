@@ -11,10 +11,9 @@ interface AppRouterProps { };
 
 export const AppRouter = ({ }: AppRouterProps) => {
   return (
-    <div className={s.AppRouter}>
+    <main className={s.AppRouter}>
       <Suspense fallback={
         <div className={s.loading}>Loading</div>}>
-
         <Routes>
           {Object.values(routeConfig).map(({ path, element }) => {
             return <Route key={path}
@@ -23,6 +22,6 @@ export const AppRouter = ({ }: AppRouterProps) => {
           <Route path={"*"} element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-    </div>
+    </main>
   );
 };

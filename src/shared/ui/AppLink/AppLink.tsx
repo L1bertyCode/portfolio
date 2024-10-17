@@ -6,12 +6,13 @@ import { classNames } from "@/shared/lib/classNames/classNames";
 type AppLinkVariant = "primary" | "secondary";
 interface AppLinkProps extends LinkProps {
   variant?: AppLinkVariant;
+  className?: string;
 };
 
-export const AppLink = ({ children, to, variant = "secondary", ...otherProps }: AppLinkProps) => {
+export const AppLink = ({ children, to, variant = "secondary", className, ...otherProps }: AppLinkProps) => {
   return (
     <Link
-      className={classNames(s.AppLink, {}, [s[variant]])}
+      className={classNames(s.AppLink, {}, [s[variant], className])}
       to={to}
       {...otherProps}>
       {children}

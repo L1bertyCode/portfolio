@@ -9,9 +9,9 @@ export const MianLayout = ({ header, main, footer }: MianLayoutProps) => {
   return (
     <div className={s.MianLayout}>
       <div className={s.page}>
-        <header>{header}</header>
-        <main>{main}</main>
-        {footer && <footer>{footer}</footer>}
+        <>{header}</>
+        <>{main}</>
+        {footer && <>{footer}</>}
       </div>
     </div >
   );

@@ -11,16 +11,14 @@ export const Navbar = ({ }:
   const { toggleTheme } = useTheme();
   return (
     <div className={s.Navbar}>
-      <AppLink to="/">logo</AppLink>
-      <div>
-        <nav>
-          {Object.values(routeConfig).map(route =>
-            <AppLink key={route.path} to={"/"}>{route.name}</AppLink>
-          )}
 
-        </nav>
-        <ThemeSwitcher onClick={toggleTheme} />
-      </div>
+      <nav>
+        {Object.values(routeConfig).map(route =>
+          <AppLink key={route.path} to={route.path}>{route.name}</AppLink>
+        )}
+
+      </nav>
+      <ThemeSwitcher onClick={toggleTheme} />
     </div>
   );
 };
