@@ -6,7 +6,7 @@ import "./app/styles/index.scss";
 import { ThemeProvider } from './app/providers/ThemeProvider';
 
 
-const root = createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <BrowserRouter>
     <ThemeProvider>

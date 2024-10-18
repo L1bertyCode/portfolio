@@ -5,7 +5,17 @@
 
   text-decoration: none;
   padding: 8px 12px;
+
+  transition: all var(--transition-delay);
+
+  &:hover {
+    background-image: var(--gradient);
+    color: transparent;
+    background-clip: text;
+    transition: all var(--transition-delay);
+  }
 }
+
 
 
 .primary {

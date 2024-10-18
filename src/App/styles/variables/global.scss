@@ -1,4 +1,11 @@
 :root {
+  /*Delay*/
+  --transition-delay: 0.3s;
+
+  /*Colors*/
+  --gradient: linear-gradient(rgb(19, 176, 245), rgb(231, 15, 170));
+
+  --gradient-90deg: linear-gradient(90.00deg, rgb(19, 176, 245), rgb(231, 15, 170));
   /* Sizes */
   --header-height: 80px;
 

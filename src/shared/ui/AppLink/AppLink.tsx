@@ -9,7 +9,7 @@ interface AppLinkProps extends LinkProps {
   className?: string;
 };
 
-export const AppLink = ({ children, to, variant = "secondary", className, ...otherProps }: AppLinkProps) => {
+export const AppLink = ({ children, to, variant = "secondary", className = "", ...otherProps }: AppLinkProps) => {
   return (
     <Link
       className={classNames(s.AppLink, {}, [s[variant], className])}

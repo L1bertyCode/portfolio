@@ -7,10 +7,9 @@ export const Navbar = ({ }:
   NavbarProps) => {
 
   return (
-
     <nav className={s.Navbar}>
       {Object.values(routeConfig).map(route =>
-        <AppLink key={route.path} to={route.path}>{route.name}</AppLink>
+        <AppLink key={route.path} to={route.path || "/"}>{route.name}</AppLink>
       )}
 
     </nav>

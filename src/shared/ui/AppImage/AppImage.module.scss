@@ -1,16 +1,18 @@
-.AppImage {
-  border-radius: 50%;
+.block {
   position: relative;
-  z-index: 1;
 }
 
-.AppImage:after {
-  content: "";
+.AppImage {
   position: absolute;
-  z-index: 0;
+  z-index: 2;
+}
+
+.block:after {
+  position: absolute;
+  content: "";
+  z-index: 1;
   top: 0;
   right: 0;
-  /* Heading / H2 Header */
   background: linear-gradient(rgb(231, 15, 170), rgb(19, 176, 245));
   border-radius: 50%;
 }
@@ -20,27 +22,6 @@
   height: 200px;
 }
 
-
-.normal:after {
-  width: 204px;
-  height: 204px;
-}
-
 .round {
-  border-radius: 50%;
-}
-
-.block {
-  position: relative;
-}
-
-.block:after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  right: 0;
-  /* Heading / H2 Header */
-  background: linear-gradient(rgb(231, 15, 170), rgb(19, 176, 245));
   border-radius: 50%;
 }

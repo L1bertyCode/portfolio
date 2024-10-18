@@ -9,11 +9,12 @@ type AppButtonColorType = | "accent";
 export interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: AppButtonVariant;
   colorType?: AppButtonColorType;
+  className?: string;
 };
 
 export const AppButton = ({
   children,
-  className,
+  className = "",
   variant = "filled",
   colorType = "accent",
   ...otherProps

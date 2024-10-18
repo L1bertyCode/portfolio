@@ -10,15 +10,14 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 
 export const AppImage = ({ src, alt = "img", size = "normal", round = false, ...otherProps }: AppImageProps) => {
   return (
-    <>
+    <div className={classNames(s.block, { [s.round]: false }, [s[size]])} >
       <img
         className={classNames(s.AppImage, { [s.round]: false }, [s[size]])}
         src={src}
         alt={alt}
         {...otherProps}
       />
-      <div className={classNames(s.block, { [s.round]: false }, [s[size]])}></div>
-    </>
+    </div>
 
   );
 };

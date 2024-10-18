@@ -8,7 +8,7 @@ export enum AppRoutes {
   SKILLS = "skills",
   PROJECTS = "projects"
 }
-type UserRouteProps = RouteProps & {
+export type UserRouteProps = RouteProps & {
   name: string;
 };
 export const RoutePath: Record<AppRoutes, string> = {

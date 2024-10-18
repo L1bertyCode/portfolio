@@ -1,0 +1,11 @@
+.Logo {
+  background-image: var(--gradient);
+  color: transparent;
+  background-clip: text;
+  transition: all var(--transition-delay) linear;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: all var(--transition-delay) linear;
+  }
+}

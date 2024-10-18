@@ -7,7 +7,7 @@ export const Banner = ({ }: BannerProps) => {
     <section className={s.Banner}>
       <h1>Hi 👋,
         My name is
-        Viacheslav
+        Vi
         I build things for web</h1>
       <AppImage src={hoto} />
       <img />
