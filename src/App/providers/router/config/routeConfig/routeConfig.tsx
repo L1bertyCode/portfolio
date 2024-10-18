@@ -1,12 +1,14 @@
-import { MainPage } from "@/pages/MainPage";
-import { ProjectsPage } from "@/pages/ProjectsPage";
-import { SkillsPage } from "@/pages/SkillsPage";
 import { RouteProps } from "react-router-dom";
+import { MainPage } from "@/pages/MainPage";
+import { SkillsPage } from "@/pages/SkillsPage";
+import { ProjectsPage } from "@/pages/ProjectsPage";
+import { ContactsPage } from "@/pages/ContactsPage";
 
 export enum AppRoutes {
   MAIN = "main",
   SKILLS = "skills",
-  PROJECTS = "projects"
+  PROJECTS = "projects",
+  CONTACTS = "contacts"
 }
 export type UserRouteProps = RouteProps & {
   name: string;
@@ -15,6 +17,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: "/",
   [AppRoutes.SKILLS]: "/skills",
   [AppRoutes.PROJECTS]: "/projects",
+  [AppRoutes.CONTACTS]: "/contacts",
 };
 
 export const routeConfig: Record<AppRoutes, UserRouteProps> = {
@@ -32,5 +35,10 @@ export const routeConfig: Record<AppRoutes, UserRouteProps> = {
     path: RoutePath.projects,
     element: <ProjectsPage />,
     name: "Projects"
+  },
+  [AppRoutes.CONTACTS]: {
+    path: RoutePath.contacts,
+    element: <ContactsPage />,
+    name: "Contacts"
   }
 };
