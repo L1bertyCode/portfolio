@@ -10,4 +10,4 @@ declare module "*.svg" {
   const content: FC<SVGProps<SVGElement>>;
   export default content;
 }
-declare module "*.png";
+declare module "*.png"; 
