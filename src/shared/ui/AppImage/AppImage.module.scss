@@ -1,13 +1,8 @@
-.block {
+.wrapper {
   position: relative;
 }
 
-.AppImage {
-  position: absolute;
-  z-index: 2;
-}
-
-.block:after {
+.wrapper:after {
   position: absolute;
   content: "";
   z-index: 1;
@@ -15,6 +10,11 @@
   right: 0;
   background: linear-gradient(rgb(231, 15, 170), rgb(19, 176, 245));
   border-radius: 50%;
+}
+
+.AppImage {
+  position: absolute;
+  z-index: 1;         
 }
 
 .normal {
