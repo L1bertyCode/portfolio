@@ -32,6 +32,8 @@ interface SkillsProps { };
 export const Skills = ({ }: SkillsProps) => {
   return (
     <section className={s.Skills}>
+      <h2>My tech stack</h2>
+      <h3> Technologies I’ve been working with recently </h3>
       <div className={s.skillsList}> {skillsSvg.map((svg, i) => {
         return < SkillItem key={i} Svg={svg} />;
       }

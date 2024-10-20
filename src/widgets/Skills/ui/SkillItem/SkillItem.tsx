@@ -5,7 +5,7 @@ interface SkillItemProps { Svg: FC<SVGProps<SVGElement>>; };
 export const SkillItem = ({ Svg }: SkillItemProps) => {
   return (
     <div className={s.SkillItem}>
-      <AppIcon Svg={Svg} />
+      <AppIcon className={s.icon} Svg={Svg} />
     </div>
   );
 };

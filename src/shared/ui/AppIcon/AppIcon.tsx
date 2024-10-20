@@ -7,8 +7,9 @@ interface AppIconProps {
   size?: string;
   viewBox?: string;
 };
-export const AppIcon = ({ Svg, className = "", size = "105px", viewBox = "0 0 105 105" }: AppIconProps) => {
+export const AppIcon = ({ Svg, className = "" }: AppIconProps) => {
   return (
-    <Svg width={size} height={size} viewBox={viewBox} className={classNames(s.AppIcon, {}, [className])} />
+    <Svg
+      className={classNames(s.AppIcon, {}, [className])} />
   );
 };
