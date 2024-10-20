@@ -1,11 +1,11 @@
 import { AppIcon } from "@/shared/ui/AppIcon/AppIcon";
 import s from "./SkillItem.module.scss";
-interface SkillItemProps { };
-export const SkillItem = ({ }: SkillItemProps) => {
+import { FC, SVGProps } from "react";
+interface SkillItemProps { Svg: FC<SVGProps<SVGElement>>; };
+export const SkillItem = ({ Svg }: SkillItemProps) => {
   return (
     <div className={s.SkillItem}>
-      <div>SkillItem</div>
-      {/* <AppIcon  /> */}
+      <AppIcon Svg={Svg} />
     </div>
   );
 };
