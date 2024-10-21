@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
-import s from "./MianLayout.module.scss";
-interface MianLayoutProps {
+import s from "./MainLayout.module.scss";
+interface MainLayoutProps {
   header: ReactNode;
   main: ReactNode;
   footer?: ReactNode;
 };
-export const MianLayout = ({ header, main, footer }: MianLayoutProps) => {
+export const MainLayout = ({ header, main, footer }: MainLayoutProps) => {
   return (
-    <div className={s.MianLayout}>
+    <div className={s.MainLayout}>
       <div className={s.page}>
         <>{header}</>
         <>{main}</>

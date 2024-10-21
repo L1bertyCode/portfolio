@@ -1,6 +1,9 @@
 :root {
-  /*Delay*/
-  --transition-delay: 0.3s;
+
+  /*@Media*/
+  --laptop: 1230px
+    /*Delay*/
+    --transition-delay: 0.3s;
 
   /*Colors*/
   --gradient: linear-gradient(rgb(19, 176, 245), rgb(231, 15, 170));
@@ -34,6 +37,6 @@
   --font-xxl: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family-main);
 
   --font-size-xxxl: 56px;
-  --font-line-xxxl: 64 px;
+  --font-line-xxxl: 64px;
   --font-xxxl: var(--font-size-xxxl) / var(--font-line-xxxl) var(--font-family-main);
 }

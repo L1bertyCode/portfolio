@@ -1,10 +1,10 @@
-.MianLayout {
+.MainLayout {
   width: 100%;
   min-height: 100vh;
 }
 
 .page {
-  width: 1230px;
+  max-width: 1230px;
   padding: 0 15px;
   margin: 0 auto;
 }
